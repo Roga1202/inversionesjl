@@ -22,9 +22,9 @@ class CreateTableAdministrador extends Migration
             $table->string('AD_otros_nombres', 20)->nullable();
             $table->string('AD_primer_apellido', 20);
             $table->string('AD_otros apellidos', 20)->nullable();
-            $table->BigInteger('AD_CI');
-            $table->integer('AD_telefono');
-            $table->string('AD_correo', 50);
+            $table->BigInteger('AD_CI')->unique();
+            $table->integer('AD_telefono')->unique();
+            $table->string('AD_correo', 50)->unique();
             $table->timestamp('AD_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('AD_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
