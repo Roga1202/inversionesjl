@@ -14,9 +14,9 @@ class ModificarTablaCliente extends Migration
     public function up()
     {
         Schema::table('cliente', function (Blueprint $table){
-            $table->rename('created_at','CL_inicio');
-            $table->rename('updated_at','CL_actualizacion');
-        })
+            $table->renameColumn('created_at','CL_inicio');
+            $table->renameColumn('updated_at','CL_actualizacion');
+        });
     }
 
     /**
