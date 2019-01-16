@@ -26,6 +26,9 @@ class ModificarTablaCliente extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('cliente', function (Blueprint $table){
+            $table->renameColumn('CL_inicio','created_at');
+            $table->renameColumn('CL_actualizacion','updated_at');
+        });
     }
 }
