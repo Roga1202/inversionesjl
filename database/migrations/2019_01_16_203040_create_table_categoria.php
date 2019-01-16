@@ -14,8 +14,13 @@ class CreateTableCategoria extends Migration
     public function up()
     {
         Schema::create('categoria', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_spanish2_ci';
+            $table->bigIncrements('CA_ID');
+            $table->string('CA_nombre', 20)->unique();
+            $table->timestamp('CA_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('CA_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
