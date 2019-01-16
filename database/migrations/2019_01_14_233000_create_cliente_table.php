@@ -27,7 +27,8 @@ class CreateClienteTable extends Migration
             $table->integer('CL_telefono');
             $table->string('CL_dirección', 250);
             $table->string('CL_correo', 50);
-            $table->timestamps();
+            $table->timestamp('CL_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('CL_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

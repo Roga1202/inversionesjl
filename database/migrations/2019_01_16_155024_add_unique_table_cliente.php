@@ -14,7 +14,9 @@ class AddUniqueTableCliente extends Migration
     public function up()
     {
         Schema::table('cliente', function (Blueprint $table){
-            $table->unique('CL_CI', 'CL_telefono','CL_correo');
+            $table->unique('CL_CI');
+            $table->unique('CL_telefono');
+            $table->unique('CL_correo');
         });
     }
 
@@ -26,9 +28,9 @@ class AddUniqueTableCliente extends Migration
     public function down()
     {
         Schema::table('cliente', function (Blueprint $table){
-            $table->dropUnique('CL_CI');
-            $table->dropUnique('CL_telefono');
-            $table->dropUnique('CL_correo');
+            $table->dropUnique(['CL_CI']);
+            $table->dropUnique(['CL_telefono']);
+            $table->dropUnique(['CL_correo']);
         });
     }
 }
