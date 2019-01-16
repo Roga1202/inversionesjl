@@ -16,7 +16,7 @@ class CreateClienteTable extends Migration
         Schema::create('cliente', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
-            $table->collation = 'utf8_unicode_ci';
+            $table->collation = 'utf8_spanish2_ci';
             $table->bigIncrements('CL_ID');
             $table->string('CL_primer_nombre', 20);
             $table->string('CL_otros_nombres', 20)->nullable();
