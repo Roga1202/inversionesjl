@@ -22,7 +22,7 @@ class CreateClienteTable extends Migration
             $table->string('CL_otros_nombres', 20)->nullable();
             $table->string('CL_primer_apellido', 20);
             $table->string('CL_otros apellidos', 20)->nullable();
-            $table->BigInteger('CL_numero_compras');
+            $table->BigInteger('CL_numero_compras')->default(0);
             $table->BigInteger('CL_CI');
             $table->integer('CL_telefono');
             $table->string('CL_dirección', 250);
