@@ -17,7 +17,7 @@ class CreateTableAdministrador extends Migration
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_spanish2_ci';
-            $table->bigIncrements('AD_ID');
+            $table->increments('AD_ID');
             $table->string('AD_primer_nombre', 20);
             $table->string('AD_otros_nombres', 20)->nullable();
             $table->string('AD_primer_apellido', 20);

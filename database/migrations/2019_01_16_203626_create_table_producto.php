@@ -17,7 +17,7 @@ class CreateTableProducto extends Migration
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_spanish2_ci';
-            $table->bigIncrements('PR_ID');
+            $table->increments('PR_ID');
             $table->string('PR_nombre', 50);
             $table->BigInteger('PR_presentacion');
             $table->string('PR_unidad', 20);
