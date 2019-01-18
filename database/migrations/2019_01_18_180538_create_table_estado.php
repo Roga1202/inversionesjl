@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableEstados extends Migration
+class CreateTableEstado extends Migration
 {
     /**
      * Run the migrations.
@@ -31,6 +31,6 @@ class CreateTableEstados extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estados');
+        Schema::dropIfExists('estado');
     }
 }
