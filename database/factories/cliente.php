@@ -15,6 +15,8 @@ $factory->define(cliente::class, function (Faker $faker) {
         'CL_telefono' => $faker->randomNumber(5),
         'CL_direccion' => $faker->address(),
         'CL_correo' => $faker->freeEmail(),
-        'CL_empresa_envio' => $faker->name(),
+        'CL_empresa_envio' => $faker->Name(),
+        'CL_estado' => $faker->numberBetween(1,25),
+        'CL_ciudad' => $faker->numberBetween(1,3),
     ];
 });

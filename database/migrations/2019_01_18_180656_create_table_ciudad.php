@@ -20,7 +20,7 @@ class CreateTableCiudad extends Migration
             $table->increments('CI_ID');
             $table->integer('ES_ID')->unsigned();
             $table->foreign('ES_ID')->references('ES_ID')->on('estado')->onDelete('cascade');
-            $table->string('CI_nombre', 50)->unique();
+            $table->string('CI_nombre', 50);
             $table->timestamp('CI_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('CI_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

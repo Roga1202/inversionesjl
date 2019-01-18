@@ -53,7 +53,7 @@ class AddDatesEstado extends Migration
     public function down()
     {
         Schema::table('estado', function (Blueprint $table) {
-            DB::table('estado')->DELETE ()->ondelete('cascade');
+            DB::table('estado')->DELETE();
         });
     }
 }

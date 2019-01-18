@@ -28,6 +28,10 @@ class CreateClienteTable extends Migration
             $table->string('CL_direccion', 250);
             $table->string('CL_correo', 50);
             $table->string('CL_empresa_envio', 50);
+            $table->integer('CL_estado')->unsigned();
+            $table->foreign('CL_estado')->references('ES_ID')->on('estado')->ondelete('cascade');
+            $table->integer('CL_ciudad')->unsigned();
+            $table->foreign('CL_ciudad')->references('CI_ID')->on('ciudad')->ondelete('cascade');
             $table->timestamp('CL_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('CL_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
