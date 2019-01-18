@@ -22,8 +22,8 @@ class CreateTableProducto extends Migration
             $table->BigInteger('PR_presentacion');
             $table->string('PR_unidad', 20);
             $table->BigInteger('PR_precio');
-            $table->timestamp('AD_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('AD_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->timestamp('PR_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('PR_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->integer('CA_ID')->unsigned();
             $table->foreign('CA_ID')->references('CA_ID')->on('categoria')->onDelete('cascade');
         });

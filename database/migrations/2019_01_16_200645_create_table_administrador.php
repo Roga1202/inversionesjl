@@ -21,7 +21,7 @@ class CreateTableAdministrador extends Migration
             $table->string('AD_primer_nombre', 20);
             $table->string('AD_otros_nombres', 20)->nullable();
             $table->string('AD_primer_apellido', 20);
-            $table->string('AD_otros apellidos', 20)->nullable();
+            $table->string('AD_otros_apellidos', 20)->nullable();
             $table->BigInteger('AD_CI')->unique();
             $table->integer('AD_telefono')->unique();
             $table->string('AD_correo', 50)->unique();
