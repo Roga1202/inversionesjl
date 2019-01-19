@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', 'IndexController@gethome');
+Route::get('/', 'IndexController@getindex');
+Route::get('/home', 'IndexController@gethome');
+
+//categoria
+
+Route::get('/categoria/crear','CategoriaController@getcrear_categoria');
+Route::post('/categoria/crear','CategoriaController@postcrear_categoria');
+Route::get('/categoria/actualizar/{id}', 'CategoriaController@geteditar_categoria')->where('id', '[0-9]+');
+Route::post('/categoria/actualizar/{id}', 'CategoriaController@posteditar_categoria')->where('id', '[0-9]+');
+Route::post('/categoria/eliminar/{id}', 'CategoriaController@geteliminar_categoria')->where('id', '[0-9]+');
 
 ?>
