@@ -1,0 +1,30 @@
+body{
+	background-size: cover;
+	
+	background-image: url("../imagenes/zurdo.jpeg");
+}
+
+h2{
+	color: white;
+}
+
+.contenido{
+  text-align: left;
+}
+
+#botones{
+  text-align: center;
+}
+
+#registro{
+ position: relative;
+ margin: auto;
+ margin-bottom: 10px;
+ padding:10px 10px 10px;
+ width: 700px;
+ background: white;
+ border-radius: 15px;
+}
+
+
+
