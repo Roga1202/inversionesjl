@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\categoria;
+use App\producto;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -13,10 +13,14 @@ class IndexController extends Controller
         return view('index');
     }
 
+    public function prueba(){
+        return view('prueba');
+    }
+
     public function gethome(){
-        $categoria = Categoria::paginate(15);
+        $producto = producto::paginate(15);
         return view('home',[
-            'categorias' => $categoria,
+            'productos' => $producto,
         ]);
     }
 

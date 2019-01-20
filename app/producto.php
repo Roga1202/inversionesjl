@@ -9,6 +9,7 @@ class producto extends Model
     //
 
     protected $guarded = [];
+    protected $primaryKey = 'PR_ID';
 
     const CREATED_AT = 'PR_inicio';
     const UPDATED_AT = 'PR_actualizacion';

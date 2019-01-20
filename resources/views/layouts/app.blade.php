@@ -49,7 +49,7 @@
                     <div class="col-sm-2 sidenav">
                         <p><a href="/categoria/crear" style="color: black;"><i class="material-icons" style="color:black">add_shopping_cart</i> Agregar Categoria</a></p>
                         <p><a href="/cliente/crear" style="color: black;"><i class="material-icons" style="color:black">supervisor_account</i> Agregar cliente </a></p>
-                        <p><a href="addproducto.html" style="color: black;"><i class="material-icons" style="color:black">redeem</i> Agregar producto</a></p>
+                        <p><a href="/producto/crear" style="color: black;"><i class="material-icons" style="color:black">redeem</i> Agregar producto</a></p>
                         <p><a href="addproducto.html" style="color: black;"><i class="material-icons" style="color:black">assignment</i> Hacer Factura</a></p>
                     </div>
                     <div class="col-sm-8 text-left">
@@ -70,6 +70,6 @@
             <p> <a href="https://www.instagram.com/tomate.agencia/" style="color: white;"> Elaborado por Tomate Agencia +</p></a>
             @yield('footer')
         </footer>
-        @yield('footer')
+        @yield('script')
     </body>
 </html>
