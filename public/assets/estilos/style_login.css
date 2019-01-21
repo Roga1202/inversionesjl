@@ -1,0 +1,20 @@
+body{
+  background-size: cover;
+  background-image: url("../imagenes/fondo.jpg");
+}
+
+.login {
+  
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 20px 20px;
+  width: 318px;
+  background: white;
+  border-radius: 15px;
+  }
+
+#titulo {
+  text-align: center;
+    color: white;
+     font-family: "roboto", sans-serif;
+}

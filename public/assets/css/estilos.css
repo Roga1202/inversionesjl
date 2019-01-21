@@ -1,0 +1,108 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-image: url("../imagenes/index.jpeg");
+  font-family: "roboto", sans-serif;
+}
+
+
+#titulo {
+  text-align: center;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+#titulo1 {
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px black;
+
+}
+
+#opcion1 {
+
+  margin: 0 auto;
+  padding:5px 5px 5px;
+  width: 290px;
+  background: white;
+  border-radius: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  text-align: center;
+   border: 1px solid black;
+  }
+
+#opcion {
+
+  margin: 0 auto;
+  padding:10px 10px 20px;
+  width: 360px;
+  background: white;
+  border-radius: 15px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+   border: 1px solid black;
+  }
+
+
+
+.container{
+
+  position: relative;
+  color: white;
+  margin: 0 auto;
+  padding: 30px 10px 10px;
+  width: 320px;
+  background: black;
+  border-radius: 15px;
+}
+
+header {
+  border-bottom: 2px solid black;
+  padding: 1px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+/* Input Forms*/
+input[type="text"], input[type="password"]{
+  outline: none;
+  padding: 15px;
+  display: block;
+  width: 280px;
+  border-radius: 3px;
+  border: 1px solid black;
+  margin: 20px auto;
+}
+
+input[type="submit"] {
+  padding: 10px;
+  color: #fff;
+  background: #0098cb;
+  width: 280px;
+  margin: 10px auto;
+  margin-top: 0;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #00b8eb;
+}
+footer {
+      background-color:black;
+      
+       color: white;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  color: white;
+  margin: 0 auto;
+  padding: 10px 5px 5px;
+  width: 150px;
+  background: black;
+  border-radius: 15px;    }

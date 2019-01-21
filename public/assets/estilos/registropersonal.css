@@ -1,0 +1,29 @@
+
+body{
+
+	background-image: url("../imagenes/entrenador2.jpg");
+background-size: cover;
+}
+
+ #registro{
+ position: relative;
+  margin: auto;
+  margin-bottom: 10px;
+  padding:10px 10px 10px;
+  width: 700px;
+  background: white;
+  border-radius: 15px;
+ }
+ .login {
+  
+  position: relative;
+  margin: 40px auto;
+  padding: 5px 5px 5px;
+  width: 518px;
+  background: white;
+  opacity:0.9;
+  border-radius: 15px;
+  }
+
+
+
