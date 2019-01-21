@@ -6,7 +6,6 @@ use App\producto;
 use App\estado;
 use App\ciudad;
 use Illuminate\Http\Request;
-use DB;
 
 class IndexController extends Controller
 {
@@ -17,13 +16,15 @@ class IndexController extends Controller
     }
 
     public function prueba(){
-        $ciudades= ciudad::query()->orderBy('CI_ID', 'asc')->get();
-        $estados= DB::table('estado')->groupBy('CI_nombre')->get();
+        $estados = estado::all()->pluck('ES_nombre','ES_ID');
         return view('prueba',[
-            // 'ciudades' => $ciudades,
-            'estados' => $estados,
+            'estados' => $estados, 
         ]);
-        return view('prueba')->with('$estados',$estados);
+    }
+
+    public function getciudades($id){
+        $ciudades = ciudad::where('ES_ID',$id)->pluck('CI_ID','CI_nombre');
+        return json_encode($ciudades);
     }
 
     public function gethome(){

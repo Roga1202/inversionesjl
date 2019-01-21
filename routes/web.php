@@ -43,5 +43,6 @@ Route::get('/cliente/actualizar/{id}', 'ClienteController@geteditar_cliente')->w
 Route::post('/cliente/actualizar/{id}', 'ClienteController@posteditar_cliente')->where('id', '[0-9]+');
 Route::post('/cliente/eliminar/{id}', 'ClienteController@geteliminar_cliente')->where('id', '[0-9]+');
 
+Route::get('/ciudades/{id}', 'IndexController@getciudades')->where('id', '[0-9]+');
 
 ?>
