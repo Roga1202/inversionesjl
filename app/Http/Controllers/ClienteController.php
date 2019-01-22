@@ -17,10 +17,6 @@ class ClienteController extends Controller
 
     
     public function postcrear_cliente(){
-
-
-
-        
         return view('index_cliente');
     }
 
