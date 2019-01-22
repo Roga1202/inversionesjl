@@ -3,6 +3,13 @@
     <title>Inversionesjl-Producto</title>
 @endsection
 @section('block')
+    @isset($errors)
+        @if ($errors->any())
+            <div class="alert alert-danger" role="alert">
+                Error al guardar la producto
+            </div>
+        @endif
+    @endisset
     <h2><center>Producto</center></h2>
     <form name="agregar_producto" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/producto/crear" method="post">
         {{ csrf_field() }}

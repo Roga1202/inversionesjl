@@ -28,9 +28,9 @@ class IndexController extends Controller
     }
 
     public function gethome(){
-        $producto = producto::paginate(15);
+        $productos = producto::paginate(15);
         return view('home',[
-            'productos' => $producto,
+            'productos' => $productos,
         ]);
     }
 

@@ -13,6 +13,8 @@ class productoController extends Controller
     
     public function getcrear_producto(){
         $categorias= Categoria::query()->orderBy('CA_ID', 'asc')->get();
+
+        
         return view('producto.crear_producto',[
             'categorias'=>$categorias,
         ]);
@@ -31,13 +33,17 @@ class productoController extends Controller
             'PR_precio' => $request->input('precio'),
             'CA_ID' => $request->input('categoria'),
         ]);
-        $message = "ok";
-        return redirect('/home')->with(compact('message'));
+        $message = "Producto Guardado";
+        $evento = 'Create';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
         }
 
     
     public function geteditar_producto($id){
-        $categorias= Categoria::query()->orderBy('CA_ID', 'asc')->get();
+        $categorias= categoria::query()->orderBy('CA_ID', 'asc')->get();
         $producto = producto::query()->where('PR_ID', '=', $id)->first();
         return view('producto.modificar_producto',[
             'producto' => $producto,
@@ -54,10 +60,13 @@ class productoController extends Controller
         $producto->PR_precio= $request->input('precio');
         $producto->CA_ID= $request->input('categoria');
         $producto->save();
-        if($producto){
-            $message = 'producto modificada';
-        }
-        return redirect('/home')->with(compact('message'));
+
+        $message = 'Producto modificado';
+        $evento = 'Update';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
     }
 
     
@@ -67,10 +76,12 @@ class productoController extends Controller
         $producto = producto::find($id);
         $producto->destroy($id);
 
-        if($producto){
-            $message = 'producto eliminada';
-        }
-        return redirect('/home')->with(compact('message'));
+        $message = 'Producto eliminado';
+        $evento = 'Delete';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
     }
     
     public function getver_producto(){

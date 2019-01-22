@@ -15,18 +15,16 @@ class CategoriaController extends Controller
 
     
     public function postcrear_categoria(create_categoria_request $request){
-        $result = "error";
-
-        $errors= [];
-
         $categoria = categoria::create([
             'CA_nombre' => $request->input('name'),
         ]);
 
-        $result = "ok";
-        return view('categoria.crear_categoria',[
-            'result' => $result,
-        ]);
+        $message = 'Categoria Guardada';
+        $evento = 'Create';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
     }
 
     
@@ -42,10 +40,13 @@ class CategoriaController extends Controller
         $categoria = categoria::findorfail($id);
         $categoria->CA_nombre= $request->input('name');
         $categoria->save();
-        if($categoria){
-            $message = 'Categoria modificada';
-        }
-        return redirect('/home')->with(compact('message'));
+        
+        $message = 'Categoria modificada';
+        $evento = 'Update';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
     }
 
     
@@ -55,10 +56,12 @@ class CategoriaController extends Controller
         $categoria = categoria::find($id);
         $categoria->destroy($id);
 
-        if($categoria){
-            $message = 'Categoria eliminada';
-        }
-        return redirect('/home')->with(compact('message'));
+        $message = 'Categoria eliminada';
+        $evento = 'Delete';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
     }
     
     public function getver_categoria(){
