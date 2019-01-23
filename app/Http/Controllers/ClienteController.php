@@ -34,7 +34,7 @@ class ClienteController extends Controller
         ]);
 
 
-        $message = 'Categoria Guardada';
+        $message = 'Cliente Guardada';
         $evento = 'Create';
         return redirect('/home')->with([
             'message' => $message,
@@ -54,8 +54,17 @@ class ClienteController extends Controller
 
     
     
-    public function geteliminar_cliente(){
-        return view('index_cliente');
+    public function geteliminar_cliente($id){
+
+        $cliente = cliente::find($id);
+        $cliente->destroy($id);
+
+        $message = 'Cliente eliminada';
+        $evento = 'Delete';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
     }
     //
 }

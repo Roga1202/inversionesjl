@@ -4,6 +4,24 @@
   @endsection
   @section('block')
   
+  @if(session('message') and session('evento'))
+    @if (session('evento') == 'Create')
+      <div class="alert alert-success" role="alert">
+        {{ session('message') }}
+      </div>
+    @endif
+    @if (session('evento') == 'Update')
+      <div class="alert alert-primary" role="alert">
+        {{ session('message') }}
+      </div>
+    @endif 
+    @if(session('evento') == 'Delete')
+      <div class="alert alert-danger" role="alert">
+        {{ session('message') }}
+      </div> 
+    @endif
+  @endif
+  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
