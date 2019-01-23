@@ -23,6 +23,7 @@
                 <div class="container" class="contenido" id="contenido">
                     <div class="col-md-12">
                         <form name="agregar_cliente" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/cliente/crear" method="post">
+                            {{ csrf_field() }}
                             <h2 style="text-align: center;color: black;">Agregar Cliente</h2>
                             <h3 style="color: black">Datos del nuevo cliente</h3>
                             <div class="input-group">
@@ -68,6 +69,30 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-send"></i></span>
                                 <input id="empresa_envio" name="empresa_envio" type="text" class="form-control" placeholder="Empresa de Envio" required autocomplete="off">
+                            </div>
+
+
+                            <div id="form-group">
+                                <label for="estado">Selecciona tu estado</label>
+                                <select name="estado" id="estado">
+                                    <option value="">Selecciona tu estado</option>
+                                    @if (isset($estados))
+                                        @foreach ($estados as $id => $nombre)
+                                            <option value="{{$id}}">{{$nombre}}</option>
+                                        @endforeach
+                                    @endif
+                                    @if (empty($estados))
+                                        <option value="">No hay estados creados o no se cargaron</option>
+                                    @endif
+                                </select>
+                            </div>
+
+
+                            <div id="form-group">
+                            <label for="estado">Selecciona tu ciudad</label>
+                            <select name="ciudad" id="ciudad">
+                            <option value="">Selecciona tu ciudad</option>
+                            </select>
                             </div>
                                 
                             <div id="completo">

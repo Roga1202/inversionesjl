@@ -12,7 +12,7 @@
     @endisset
     <h2><center>Producto</center></h2>
     <form name="agregar_producto" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/producto/crear" method="post">
-        {{ csrf_field() }}
+            {{ csrf_field() }}
 
             <div class="form-group">
                        <label for="name" class="col-sm-2 control-label">Nombre</label>
