@@ -22,53 +22,59 @@
             <div class="col-sm-8 text-left"> 
                 <div class="container" class="contenido" id="contenido">
                     <div class="col-md-12">
-                        <form name="agregar_cliente" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/cliente/crear" method="post">
+                    <form name="modificar_cliente" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/cliente/actualizar/{{ $cliente['CL_ID']}}" method="post">
                             {{ csrf_field() }}
+                    <input type="hidden" id="id" name="id" class="form-control" value="{{ $cliente['CL_ID']}}">
                             <h2 style="text-align: center;color: black;">Agregar Cliente</h2>
                             <h3 style="color: black">Datos del nuevo cliente</h3>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="primer_nombre" name="primer_nombre" type="text" class="form-control @if($errors->has('primer_nombre')) is-invalid @endif" placeholder="Primer nombre" required autocomplete="off">
+                                <input id="primer_nombre" name="primer_nombre" type="text" class="form-control @if($errors->has('primer_nombre')) is-invalid @endif" placeholder="Primer nombre" required autocomplete="off" value="{{ $cliente['CL_primer_nombre']}}">
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="otro_nombre" name="otro_nombre" type="text" class="form-control @if($errors->has('otro_nombre')) is-invalid @endif" placeholder="Otros nombres" required autocomplete="off">
+                                <input id="otro_nombre" name="otro_nombre" type="text" class="form-control @if($errors->has('otro_nombre')) is-invalid @endif" placeholder="Otros nombres" required autocomplete="off" value="{{ $cliente['CL_otros_nombres']}}">
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input id="primer_apellido" name="primer_apellido" type="text" class="form-control @if($errors->has('primer_apellido')) is-invalid @endif" placeholder="Primer apellido" required autocomplete="off">
+                                <input id="primer_apellido" name="primer_apellido" type="text" class="form-control @if($errors->has('primer_apellido')) is-invalid @endif" placeholder="Primer apellido" required autocomplete="off" value="{{ $cliente['CL_primer_apellido']}}">
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input id="otro_apellido" name="otro_apellido" type="text" class="form-control @if($errors->has('otro_apellido')) is-invalid @endif" placeholder="Segundo apellido" required autocomplete="off">
+                                <input id="otro_apellido" name="otro_apellido" type="text" class="form-control @if($errors->has('otro_apellido')) is-invalid @endif" placeholder="Segundo apellido" required autocomplete="off" value="{{ $cliente['CL_otros_apellidos']}}">
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
-                                <input id="ci" name="ci" type="number" class="form-control @if($errors->has('ci')) is-invalid @endif" placeholder="Cedula de identidad o número de partida" required autocomplete="off">
+                                <input id="ci" name="ci" type="text" class="form-control @if($errors->has('ci')) is-invalid @endif" placeholder="Cedula de identidad o número de partida" required autocomplete="off" value="{{ $cliente['CL_CI']}}">
+                                @if ($errors->has('ci'))
+                                    @foreach ($errors->get('ci') as $error)
+                                        <div class="invalid-feedback">{{ $error }}</div>   
+                                    @endforeach
+                                @endif
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                <input id="telefono" name="telefono" type="number" class="form-control @if($errors->has('telefono')) is-invalid @endif" placeholder="Número de telefono" required autocomplete="off">
+                                <input id="telefono" name="telefono" type="text" class="form-control @if($errors->has('telefono')) is-invalid @endif" placeholder="Número de telefono" required autocomplete="off" value="{{ $cliente['CL_telefono']}}">
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                                <input id="direccion" name="direccion" type="text" class="form-control @if($errors->has('direccion')) is-invalid @endif" placeholder="Direccion de envio" required autocomplete="off">
+                                <input id="direccion" name="direccion" type="text" class="form-control @if($errors->has('direccion')) is-invalid @endif" placeholder="Direccion de envio" required autocomplete="off" value="{{ $cliente['CL_direccion']}}">
                             </div>
 
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input id="correo" name="correo" type="email" class="form-control @if($errors->has('correo')) is-invalid @endif" placeholder="Correo Electronico" required autocomplete="off">
+                                <input id="correo" name="correo" type="email" class="form-control @if($errors->has('correo')) is-invalid @endif" placeholder="Correo Electronico" required autocomplete="off" value="{{ $cliente['CL_correo']}}">
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-send"></i></span>
-                                <input id="empresa_envio" name="empresa_envio" type="text" class="form-control @if($errors->has('empresa_envio')) is-invalid @endif" placeholder="Empresa de Envio" required autocomplete="off">
+                                <input id="empresa_envio" name="empresa_envio" type="text" class="form-control @if($errors->has('empresa_envio')) is-invalid @endif" placeholder="Empresa de Envio" required autocomplete="off" value="{{ $cliente['CL_empresa_envio']}}">
                             </div>
 
 
@@ -91,8 +97,8 @@
                             <div id="form-group">
                             <label for="ciudad">Selecciona tu ciudad</label>
                             <select class="selectpick @if($errors->has('ciudad')) is-invalid @endif" name="ciudad" id="ciudad">
-                            <option value="">Selecciona tu ciudad</option>
-                            </select>
+                                <option value="">Selecciona tu ciudad</option>
+                             </select>
                             </div>
                                 
                             <div id="completo">
@@ -110,6 +116,32 @@
 @endsection
 
 @section('script')
+<script>
+    $(function(){
+        var value_estado= '<?php echo $cliente['CL_estado'];?>'
+        $("#estado").val(value_estado)
+
+        if(value_estado){
+            $.ajax({
+                    url: '/ciudades/'+value_estado,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data){
+                    $('select[name="ciudad"]').empty();
+                        $.each(data, function(key, value){
+                        $('select[name="ciudad"]')
+                        .append('<option value="'+value+'">'+key + '</option>')
+                    });
+                    }
+                })
+            } else{
+                $('select[name="ciudad"]').empty();$('select[name="ciudad"]')
+                        .append('<option value=""></option>')
+            }
+        var value_ciudad= '<?php echo $cliente['CL_ciudad'];?>'
+        $("#ciudad").val(value_ciudad)
+    });
+</script>
  <script>
      $(function(){
         $('select[name="estado"]').on('change', function(){

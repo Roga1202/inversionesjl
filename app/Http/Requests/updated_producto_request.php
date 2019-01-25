@@ -24,7 +24,7 @@ class updated_producto_request extends FormRequest
     {
         return [
             //
-            'name' =>'required',
+            'name' =>'required | unique:producto,PR_nombre,'.request()->input('id').',PR_ID',
             'presentacion' =>'required | digits_between:1,20',
             'unidad' =>'required | alpha_dash | string:20',
             'precio' =>'required | digits_between:1,20',

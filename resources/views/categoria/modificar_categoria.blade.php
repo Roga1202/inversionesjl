@@ -8,6 +8,7 @@
         {{ csrf_field() }}
         
         <input type="hidden" name="id" id="id" value="{{ $categoria['CA_ID'] }}">
+        
         <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-">

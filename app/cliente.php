@@ -10,6 +10,7 @@ class cliente extends Model
 
     protected $guarded = [];
 
+    protected $primaryKey = 'CL_ID';
     const CREATED_AT = 'CL_inicio';
     const UPDATED_AT = 'CL_actualizacion';
 

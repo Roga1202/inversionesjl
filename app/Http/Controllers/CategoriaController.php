@@ -24,7 +24,7 @@ class CategoriaController extends Controller
         return redirect('/home')->with([
             'message' => $message,
             'evento' => $evento,
-            ]);
+        ]);
     }
 
     
@@ -46,7 +46,7 @@ class CategoriaController extends Controller
         return redirect('/home')->with([
             'message' => $message,
             'evento' => $evento,
-            ]);
+        ]);
     }
 
     
@@ -61,7 +61,7 @@ class CategoriaController extends Controller
         return redirect('/home')->with([
             'message' => $message,
             'evento' => $evento,
-            ]);
+        ]);
     }
     
     public function getver_categoria(){

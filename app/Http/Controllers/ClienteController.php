@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\create_cliente_request;
+use App\Http\Requests\updated_cliente_request;
 use Illuminate\Http\Request;
 use App\estado;
 use App\cliente;
@@ -43,13 +44,37 @@ class ClienteController extends Controller
     }
 
     
-    public function geteditar_cliente(){
-        return view('index_cliente');
+    public function geteditar_cliente($id){
+        $cliente = cliente::query()->where('CL_ID', '=', $id)->first();
+        $estados = estado::all()->pluck('ES_nombre','ES_ID');
+        return view('cliente.modificar_cliente',[
+            'estados' => $estados, 
+            'cliente' => $cliente, 
+        ]);
     }
 
     
-    public function posteditar_cliente(){
-        return view('index_cliente');
+    public function posteditar_cliente(updated_cliente_request $request,$id){
+        $cliente = cliente::findorfail($id);
+        $cliente->CL_primer_nombre= $request->input('primer_nombre');
+        $cliente->CL_otros_nombres= $request->input('otro_nombre');
+        $cliente->CL_primer_apellido= $request->input('primer_apellido');
+        $cliente->CL_otros_apellidos= $request->input('otro_apellido');
+        $cliente->CL_CI= $request->input('ci');
+        $cliente->CL_telefono= $request->input('telefono');
+        $cliente->CL_direccion= $request->input('direccion');
+        $cliente->CL_correo= $request->input('correo');
+        $cliente->CL_empresa_envio= $request->input('empresa_envio');
+        $cliente->CL_estado= $request->input('estado');
+        $cliente->CL_ciudad= $request->input('ciudad');
+        $cliente->save();
+
+        $message = 'Cliente modificado';
+        $evento = 'Update';
+        return redirect('/home')->with([
+            'message' => $message,
+            'evento' => $evento,
+            ]);
     }
 
     

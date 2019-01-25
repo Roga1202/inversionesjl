@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class create_cliente_request extends FormRequest
+class updated_cliente_request extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class create_cliente_request extends FormRequest
     {
         return True;
     }
-
+    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -28,10 +28,10 @@ class create_cliente_request extends FormRequest
             'otro_nombre' =>'Alpha | string:20',
             'primer_apellido' =>'required | Alpha | string:20',
             'otro_apellido' =>'Alpha | string:20',
-            'ci' =>'required | digits_between:1,8 | unique:cliente,CL_CI',
-            'telefono' =>'required | digits_between:1,11 | unique:cliente,CL_telefono',
+            'ci' =>'required | digits_between::1,8 | unique:cliente,CL_CI,'.request()->input('ci').',CL_CI',
+            'telefono' =>'required | digits_between::1,11 | unique:cliente,CL_telefono,'.request()->input('telefono').',CL_telefono',
             'direccion' =>'required',
-            'correo' =>'required | email | unique:cliente,CL_correo',
+            'correo' =>'required | email | unique:cliente,CL_correo,'.request()->input('correo').',CL_correo',
             'empresa_envio' =>'required | string:50',
             'estado' =>'required | exists:estado,ES_ID',
             'ciudad' =>'required | exists:ciudad,CI_ID',

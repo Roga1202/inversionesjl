@@ -22,10 +22,6 @@ class productoController extends Controller
 
     
     public function postcrear_producto(create_producto_request $request){
-        $result = "error";
-
-        $errors= [];
-
         $producto = producto::create([
             'PR_nombre' => $request->input('name'),
             'PR_presentacion' => $request->input('presentacion'),
