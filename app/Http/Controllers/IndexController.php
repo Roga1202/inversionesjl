@@ -27,6 +27,11 @@ class IndexController extends Controller
         return json_encode($ciudades);
     }
 
+    public function getestados($id){
+        $estado = estado::where('ES_ID',$id)->pluck('ES_ID','ES_nombre');
+        return json_encode($estado);
+    }
+
     public function gethome(){
         $productos = producto::paginate(15);
         return view('home',[

@@ -15,4 +15,9 @@ class estado extends Model
     protected $table = 'estado';
     protected $fillable = ['ES_nombre'];
 
+
+    public static function estados($id){
+        return Ciudad::where('ES_ID','=',$id)->get();
+    }
+
 }

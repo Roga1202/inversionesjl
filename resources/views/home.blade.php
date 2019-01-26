@@ -25,54 +25,99 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
   
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
   
       <div class="item active">
-      <img src="/imagenes/car1.jpg" alt="Los Angeles" style="width:100%;">
-      <div class="carousel-caption">
-      </div>
-      </div>
-  
-      <div class="item">
-      <img src="/imagenes/car3.jpg" alt="Chicago" style="width:100%;">
-      <div class="carousel-caption">
-      </div>
+        <img src="/imagenes/car1.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="carousel-caption">
+        </div>
       </div>
   
       <div class="item">
-      <img src="/imagenes/car4.jpg" alt="New York" style="width:100%;">
-      <div class="carousel-caption">
-      </div>
-      </div>
-  
-      <div class="item">
-      <img src="/imagenes/car2.jpg" alt="New York" style="width:100%;">
-      <div class="carousel-caption">
-      </div>
+        <img src="/imagenes/car3.jpg" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+        </div>
       </div>
   
       <div class="item">
-      <img src="/imagenes/car5.jpg" alt="New York" style="width:100%;">
-      <div class="carousel-caption">
+        <img src="/imagenes/car4.jpg" alt="New York" style="width:100%;">
+        <div class="carousel-caption">
+        </div>
       </div>
+  
+      <div class="item">
+        <img src="/imagenes/car2.jpg" alt="New York" style="width:100%;">
+        <div class="carousel-caption">
+        </div>  
+      </div>
+  
+      <div class="item">
+        <img src="/imagenes/car5.jpg" alt="New York" style="width:100%;">
+        <div class="carousel-caption">
+        </div>
       </div>
   
       </div>
   
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
       </a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
       </a>
-      </div>
+  </div>
+
+  <div id="col-md-8">
+    
+    <h2 class="page-headder">
+      <center>Facturas</center>
+    </h2>
+
+    <a class="btn btn-default btn-lg btn-block" href="/factura/crear">Nueva Factura</a>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th style="width:100px;" class="text-right">IVA</th>
+          <th style="width:100px;" class="text-right">Sub-total</th>
+          <th style="width:100px;" class="text-right">Total</th>
+          <th style="width:100px;" class="text-right">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for ($i = 1; $i <= 10; $i++)
+          @php
+              $total = 1180* $i;
+              $iva = $total / 12;
+              $subTotal = $total - $iva;
+          @endphp
+          <tr>
+            <td>Cliente {{ $i }}</td>
+            <td class="text-right">{{ number_format($iva,2) }}</td>
+            <td class="text-right">{{ number_format($subTotal,2) }}</td>
+            <td class="text-right">{{ number_format($total,2) }}</td>
+            <td class="text-right">hi</td>
+            </tr>
+        @endfor
+      </tbody>
+    </table>
+
+
+  </div>
+  @endsection
+
+  @section('script')
+  <script src="{{asset('bower_components/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js')}}"></script>
+  <script src="{{ asset('bower_components/riot/riot.min.js') }}"></script>
+  <script src="{{ asset('bower_components/riot/riot+compiler.min.js') }}"></script>
   @endsection

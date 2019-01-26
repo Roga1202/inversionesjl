@@ -61,6 +61,10 @@
                 <label for="categoria" class="col-sm-2 control-label">Categoria</label>
 				<div class="col-sm-10">
 					<select class="selectpicker @if($errors->has('categoria')) is-invalid @endif" id="categoria" name="categoria">
+                        @if ($errors->has('categoria'))
+                            @foreach ($errors->get('categoria') as $error)
+                                <div class="invalid-feedback">{{ $error }}</div>   
+                            @endforeach
 						@if (isset($categorias))
 							@foreach($categorias as $categoria)
 							<option value="{{ $categoria->CA_ID }}">{{ $categoria->CA_ID }}.-{{ $categoria->CA_nombre }}</option>

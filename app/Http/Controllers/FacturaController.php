@@ -3,14 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\ClienteRepository;
+use App\Http\Requests;
 
 class FacturaController extends Controller
 {
+
+
+    private $_clientRepo;
+
+    public function __CONSTRUCT(ClienteRepository $clienteRepo){
+        $this->_clienteRepo = $clienteRepo;
+    }
+
+    public function findCliente(Request $req)
+    {
+        return $this->_clienteRepo
+                    ->findByName($req->input('q'));
+    }
     
     public function getcrear_factura(){
-        $estados = estado::all()->pluck('ES_nombre','ES_ID');
         return view('factura.crear_factura',[
-            'estados' => $estados, 
         ]);
     }
 
