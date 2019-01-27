@@ -25,7 +25,7 @@
     <br><br><br><br><br><br><br><br><br>
     </section>
     <footer class=" text-center bg2">
-    <p><a href="https://www.instagram.com/tomate.agencia/" style="color: white;"> Elaborado por Tomate Agencia +</p></a>
+    <p><a href="https://www.instagram.com/tomate.agencia/" style="color: white;"> Elaborado por <EM>Proyecto MARK</p></a>
     </footer>
     </body>
     </html>
