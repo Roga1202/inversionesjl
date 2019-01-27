@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class factura extends Model
+class Factura extends Model
 {
     
     protected $guarded = [];

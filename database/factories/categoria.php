@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\categoria;
+use App\Categoria;
 
-$factory->define(categoria::class, function (Faker $faker) {
+$factory->define(Categoria::class, function (Faker $faker) {
     return [
         //
         'CA_nombre' => $faker->unique()->word(),

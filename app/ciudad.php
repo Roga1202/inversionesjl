@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ciudad extends Model
+class Ciudad extends Model
 {
     protected $guarded = [];
 

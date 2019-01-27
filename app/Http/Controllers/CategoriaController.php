@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\create_categoria_request;
 use Illuminate\Http\Request;
-use App\categoria;
+use App\Categoria;
 
 class CategoriaController extends Controller
 {
@@ -15,7 +15,7 @@ class CategoriaController extends Controller
 
     
     public function postcrear_categoria(create_categoria_request $request){
-        $categoria = categoria::create([
+        $categoria = Categoria::create([
             'CA_nombre' => $request->input('name'),
         ]);
 
@@ -29,7 +29,7 @@ class CategoriaController extends Controller
 
     
     public function geteditar_categoria($id){
-        $categoria = categoria::query()->where('CA_ID', '=', $id)->first();
+        $categoria = Categoria::query()->where('CA_ID', '=', $id)->first();
         return view('categoria.modificar_categoria',[
             'categoria' => $categoria,
         ]);
@@ -37,7 +37,7 @@ class CategoriaController extends Controller
 
     
     public function posteditar_categoria(create_categoria_request $request,$id){
-        $categoria = categoria::findorfail($id);
+        $categoria = Categoria::findorfail($id);
         $categoria->CA_nombre= $request->input('name');
         $categoria->save();
         
@@ -53,7 +53,7 @@ class CategoriaController extends Controller
     
     public function geteliminar_categoria($id){
 
-        $categoria = categoria::find($id);
+        $categoria = Categoria::find($id);
         $categoria->destroy($id);
 
         $message = 'Categoria eliminada';

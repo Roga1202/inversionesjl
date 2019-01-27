@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\producto;
-use App\estado;
-use App\ciudad;
+use App\Producto;
+use App\Estado;
+use App\Ciudad;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -16,24 +16,24 @@ class IndexController extends Controller
     }
 
     public function prueba(){
-        $estados = estado::all()->pluck('ES_nombre','ES_ID');
+        $estados = Estado::all()->pluck('ES_nombre','ES_ID');
         return view('prueba',[
             'estados' => $estados, 
         ]);
     }
 
     public function getciudades($id){
-        $ciudades = ciudad::where('ES_ID',$id)->pluck('CI_ID','CI_nombre');
+        $ciudades = Ciudad::where('ES_ID',$id)->pluck('CI_ID','CI_nombre');
         return json_encode($ciudades);
     }
 
-    public function getestados($id){
-        $estado = estado::where('ES_ID',$id)->pluck('ES_ID','ES_nombre');
+    public function getestado($id){
+        $estado = Estado::where('ES_ID',$id)->pluck('ES_nombre');
         return json_encode($estado);
     }
 
     public function gethome(){
-        $productos = producto::paginate(15);
+        $productos = Producto::paginate(15);
         return view('home',[
             'productos' => $productos,
         ]);

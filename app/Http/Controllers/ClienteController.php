@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\create_cliente_request;
 use App\Http\Requests\updated_cliente_request;
 use Illuminate\Http\Request;
-use App\estado;
-use App\cliente;
+use App\Estado;
+use App\Cliente;
 
 class ClienteController extends Controller
 {
     
     public function getcrear_cliente(){
-        $estados = estado::all()->pluck('ES_nombre','ES_ID');
+        $estados = Estado::all()->pluck('ES_nombre','ES_ID');
         return view('cliente.crear_cliente',[
             'estados' => $estados, 
         ]);
@@ -20,7 +20,7 @@ class ClienteController extends Controller
 
     
     public function postcrear_cliente(create_cliente_request $request){
-        $cliente = cliente::create([
+        $cliente = Cliente::create([
             'CL_primer_nombre' => $request->input('primer_nombre'),
             'CL_otro_nombre' => $request->input('otro_nombre'),
             'CL_primer_apellido' => $request->input('primer_apellido'),
@@ -45,8 +45,8 @@ class ClienteController extends Controller
 
     
     public function geteditar_cliente($id){
-        $cliente = cliente::query()->where('CL_ID', '=', $id)->first();
-        $estados = estado::all()->pluck('ES_nombre','ES_ID');
+        $cliente = Cliente::query()->where('CL_ID', '=', $id)->first();
+        $estados = Estado::all()->pluck('ES_nombre','ES_ID');
         return view('cliente.modificar_cliente',[
             'estados' => $estados, 
             'cliente' => $cliente, 
@@ -55,7 +55,7 @@ class ClienteController extends Controller
 
     
     public function posteditar_cliente(updated_cliente_request $request,$id){
-        $cliente = cliente::findorfail($id);
+        $cliente = Cliente::findorfail($id);
         $cliente->CL_primer_nombre= $request->input('primer_nombre');
         $cliente->CL_otros_nombres= $request->input('otro_nombre');
         $cliente->CL_primer_apellido= $request->input('primer_apellido');
@@ -81,7 +81,7 @@ class ClienteController extends Controller
     
     public function geteliminar_cliente($id){
 
-        $cliente = cliente::find($id);
+        $cliente = Cliente::find($id);
         $cliente->destroy($id);
 
         $message = 'Cliente eliminada';

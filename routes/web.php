@@ -52,7 +52,7 @@ Route::get('factura/ver/{id}', 'FacturaController@getver')->where('id', '[0-9]+'
 
 
 Route::get('/ciudades/{id}', 'IndexController@getciudades')->where('id', '[0-9]+');
-Route::get('/estado/{id}', 'IndexController@getestados')->where('id', '[0-9]+');
+Route::get('/estado/{id}', 'IndexController@getestado')->where('id', '[0-9]+');
 Route::get('/factura/findCliente', 'FacturaController@findCliente');
 
 ?>

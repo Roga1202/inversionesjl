@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\factura;
+use App\Factura;
 
-$factory->define(factura::class, function (Faker $faker) {
+$factory->define(Factura::class, function (Faker $faker) {
     return [
         //
         'CL_ID' => '1',

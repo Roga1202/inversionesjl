@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\cliente;
+use App\Cliente;
 
-$factory->define(cliente::class, function (Faker $faker) {
+$factory->define(Cliente::class, function (Faker $faker) {
     return [
         //
         'CL_primer_nombre' => $faker->firstName(),

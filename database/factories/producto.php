@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\producto;
+use App\Producto;
 
-$factory->define(producto::class, function (Faker $faker) {
+$factory->define(Producto::class, function (Faker $faker) {
     return [
         //
         'PR_nombre' => $faker->word(),
