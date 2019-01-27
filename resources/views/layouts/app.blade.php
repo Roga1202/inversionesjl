@@ -25,9 +25,8 @@
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
-    <a class="navbar-brand" style="color: white;" href="/"><i style='font-size:24px' class='fas'>&#xf0b1;</i> Inversiones JL</a>
-    <a class="navbar-brand" style="color: white;" href="/home"><i style='font-size:24px' class='fas'>&#xf015;</i> Inicio</a>
-    <a href="#" style="color: white;" id="redes"><i style='font-size:18px;' class='fas'>&#xf10b;</i> Redes Sociales</a>
+    <a class="navbar-brand" style="color: white;" href="/home"><i style='font-size:24px' class='fas'>&#xf0b1;</i> Inversiones JL</a>
+    
     <a href="/" style="color: white;" id="salir"><i style='font-size:18px;' class='fas'>&#xf023;</i> Salir</a>
     </div>
  
@@ -59,7 +58,7 @@
         </tbody>
         
         <footer class="container-fluid text-center">
-        <p> <a href="https://www.instagram.com/tomate.agencia/" style="color: white;"> Elaborado por Tomate Agencia +</p></a>
+        <p> <a href="https://www.instagram.com/tomate.agencia/" style="color: white;"> Elaborado por Proyecto MARK</p></a>
         @yield('footer')
         </footer>
         @yield('script')

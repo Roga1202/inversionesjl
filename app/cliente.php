@@ -19,7 +19,7 @@ class Cliente extends Model
 
     public function estado()
     {
-        return $this->hasOne('App\estado');
+        return $this->hasOne('App\Estado');
     }
 }
 

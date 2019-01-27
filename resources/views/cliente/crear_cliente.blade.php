@@ -17,11 +17,13 @@
             Categoria Guardada
         </div>
     @endisset
-    <div class="container-fluid text-center">    
-        <div class="row content">
-            <div class="col-sm-8 text-left"> 
-                <div class="container" class="contenido" id="contenido">
-                    <div class="col-md-12">
+         
+
+    <div class="container-fluid text-center" class="form-group">    
+        <div class="row content" style="text-aling:center;">
+            <div class="col-md-6 text-left"> 
+                <div class="container" class="contenido" id="contenido" >
+                    <div class="col-md-6" >
                         <form name="agregar_cliente" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/cliente/crear" method="post">
                             {{ csrf_field() }}
                             <h2 style="text-align: center;color: black;">Agregar Cliente</h2>
@@ -116,7 +118,10 @@
                                 @endif
                             </div>
 
+                            <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span><select class="form-control @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
 
+<<<<<<< HEAD
                             <div id="form-group">
                                 <label for="estado">Selecciona tu estado</label>
                                 <select class="selectpicker @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
@@ -126,6 +131,9 @@
                                         @endforeach
                                     @endif
                                     <option value="">Selecciona tu estado</option>
+=======
+                            <option value="">Selecciona tu estado</option>
+>>>>>>> origin/Frontend
                                     @if (isset($estados))
                                         @foreach ($estados as $id => $nombre)
                                             <option value="{{$id}}">{{$nombre}}</option>
@@ -138,30 +146,42 @@
                             </div>
 
 
-                            <div id="form-group">
-                            <label for="ciudad">Selecciona tu ciudad</label>
-                            <select class="selectpick @if($errors->has('ciudad')) is-invalid @endif" name="ciudad" id="ciudad">
-                                @if ($errors->has('ciudad'))
-                                    @foreach ($errors->get('ciudad') as $error)
-                                        <div class="invalid-feedback">{{ $error }}</div>   
-                                    @endforeach
-                                @endif
-                            <option value="">Selecciona tu ciudad</option>
-                            </select>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                <select class="form-control @if($errors->has('ciudad')) is-invalid @endif" name="ciudad" id="ciudad" for="ciudad">
+                                    @if ($errors->has('ciudad'))
+                                        @foreach ($errors->get('ciudad') as $error)
+                                            <div class="invalid-feedback">{{ $error }}</div>   
+                                        @endforeach
+                                    @endif
+                                    <option value="">Selecciona tu ciudad</option>
+                                    @if (isset($estados))
+                                        @foreach ($estados as $id => $nombre)
+                                            <option value="{{$id}}">{{$nombre}}</option>
+                                        @endforeach
+                                    @endif
+                                    @if (empty($estados))
+                                        <option value="">No hay estados creados o no se cargaron</option>
+                                    @endif
+                                </select>
                             </div>
-                                
-                            <div id="completo">
+
+                            <div id="completo" style="text-align:center;">
                                 <br>
                                 <button type="submit" class="btn btn-primary">Registrar</button>
-                                <a href="/home">salir sin guardar</a>
+                                <a href="/home" style="color:white;"><button type="button" class="btn btn-danger">salir sin guardar</button></a>
+                               <p><br></p> 
                             </div>
+                            
                         </form>
                     </div>
-                <br>
                 </div>
             </div>
         </div>
     </div>
+
+                         
+
 @endsection
 
 @section('script')

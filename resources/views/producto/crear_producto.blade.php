@@ -10,68 +10,63 @@
             </div>
         @endif
     @endisset
-    <h2><center>Producto</center></h2>
+    <div class="col-md-8" style="text-align:center,auto;">
+    <h2 style="text-align:center, auto;">Producto</h2>
     <form name="agregar_producto" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/producto/crear" method="post">
             {{ csrf_field() }}
 
             <div class="form-group">
-                       <label for="name" class="col-sm-2 control-label">Nombre</label>
-                    <div class="col-sm-">
-                        <input type="text" class="form-control @if($errors->has('name')) is-invalid @endif" id="name" name="name" >
-                        @if ($errors->has('name'))
+
+            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-tint"></i></span>
+                                <input  for="name" type="text" class="form-control @if($errors->has('name')) is-invalid @endif" id="name" name="name"  placeholder="Nombre del producto">
+                                @if ($errors->has('name'))
                             @foreach ($errors->get('name') as $error)
                                 <div class="invalid-feedback">{{ $error }}</div>   
                             @endforeach
                         @endif
-                    </div>
-            </div>
+                            </div>
 
-            <div class="form-group">
-                <label for="presentacion" class="col-sm-2 control-label">Presentacion</label>
-             <div class="col-sm-">
-                 <input type="number" class="form-control @if($errors->has('presentacion')) is-invalid @endif" id="presentacion" name="presentacion" >
-                 @if ($errors->has('presentacion'))
-                     @foreach ($errors->get('presentacion') as $error)
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-screenshot"></i></span>
+                                <input for="presentacion" type="number" class="form-control @if($errors->has('presentacion')) is-invalid @endif" id="presentacion" name="presentacion"  placeholder="Tamaño o Presentación" required autocomplete="off">
+                                @if ($errors->has('presentacion'))
+                         @foreach ($errors->get('presentacion') as $error)
+                             <div class="invalid-feedback">{{ $error }}</div>   
+                         @endforeach
+                             @endif
+                     </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-equalizer"></i></span>
+                                <input for="unidad" type="text"  class="form-control @if($errors->has('unidad')) is-invalid @endif" id="unidad" name="unidad"  placeholder="Unidad" required autocomplete="off">
+                                @if ($errors->has('unidad'))
+                        @foreach ($errors->get('unidad') as $error)
+                            <div class="invalid-feedback">{{ $error }}</div>   
+                        @endforeach
+                             @endif
+                         
+                     </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+                                <input for="precio" type="number" class="form-control @if($errors->has('precio')) is-invalid @endif" id="precio" name="precio"  placeholder="Precio" required autocomplete="off">
+                                @if ($errors->has('precio'))
+                        @foreach ($errors->get('precio') as $error)
                          <div class="invalid-feedback">{{ $error }}</div>   
-                     @endforeach
-                 @endif
-             </div>
-            </div>
+                        @endforeach
+                             @endif
+                     </div>
 
-            <div class="form-group">
-                <label for="unidad" class="col-sm-2 control-label">Unidad</label>
-             <div class="col-sm-">
-                 <input type="text" class="form-control @if($errors->has('unidad')) is-invalid @endif" id="unidad" name="unidad" >
-                 @if ($errors->has('unidad'))
-                     @foreach ($errors->get('unidad') as $error)
-                         <div class="invalid-feedback">{{ $error }}</div>   
-                     @endforeach
-                 @endif
-             </div>
-            </div>
-
-            <div class="form-group">
-                <label for="precio" class="col-sm-2 control-label">Precio</label>
-             <div class="col-sm-">
-                 <input type="number" class="form-control @if($errors->has('precio')) is-invalid @endif" id="precio" name="precio" >
-                 @if ($errors->has('precio'))
-                     @foreach ($errors->get('precio') as $error)
-                         <div class="invalid-feedback">{{ $error }}</div>   
-                     @endforeach
-                 @endif
-             </div>
-            </div>
-
-            <div class="form-group">
-                <label for="categoria" class="col-sm-2 control-label">Categoria</label>
-				<div class="col-sm-10">
-					<select class="selectpicker @if($errors->has('categoria')) is-invalid @endif" id="categoria" name="categoria" >
-                        @if ($errors->has('categoria'))
-                            @foreach ($errors->get('categoria') as $error)
-                                <div class="invalid-feedback">{{ $error }}</div>   
-                            @endforeach
-                        @endif
-						@if (isset($categorias))
+                <div class="input-group">  
+                <span class="input-group-addon"><i class="glyphicon glyphicon-folder-open"></i></span>
+                <select class="form-control @if($errors->has('categoria')) is-invalid @endif" id="categoria" name="categoria" >
+                    @if ($errors->has('categoria'))
+                        @foreach ($errors->get('categoria') as $error)
+                            <div class="invalid-feedback">{{ $error }}</div>   
+                        @endforeach
+                    @endif
+                    @if (isset($categorias))
 							@foreach($categorias as $categoria)
 							<option value="{{ $categoria->CA_ID }}">{{ $categoria->CA_ID }}.-{{ $categoria->CA_nombre }}</option>
 							@endforeach
@@ -79,14 +74,15 @@
 						@if (empty($categorias))
 							<option value="">No hay categorias creadas</option>
 						@endif
-					</select>
-             </div>
+                                </select>
+                            </div> 
             </div>
             <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <a href="/" class="btn btn-default">Regresar</a>
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <a href="/home" class="btn btn-danger">Regresar</a>
                         <input type="submit" class="btn btn-primary" value="Guardar">
                     </div>
                 </div>
     </form>
+</div>
 @endsection
