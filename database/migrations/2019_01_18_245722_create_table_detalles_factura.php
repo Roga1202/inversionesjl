@@ -24,6 +24,7 @@ class CreateTableDetallesFactura extends Migration
             $table->foreign('PR_ID')->references('PR_ID')->on('producto')->onDelete('cascade');
             $table->bigInteger('DF_cantidad');
             $table->double('DF_precio')->unsigned();
+            $table->double('DF_precio_total')->unsigned();
             $table->timestamp('DF_inicio')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('DF_actualizacion')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

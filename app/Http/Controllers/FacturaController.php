@@ -4,21 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\ClienteRepository;
+use App\Repositories\ProductoRepository;
 use App\Http\Requests;
 
 class FacturaController extends Controller
 {
 
 
-    private $_clientRepo;
+    private $_clienteRepo;
+    private $_productoRepo;
 
-    public function __CONSTRUCT(ClienteRepository $clienteRepo){
-        $this->_clienteRepo = $clienteRepo;
+    public function __CONSTRUCT(
+        ClienteRepository $clienteRepo,
+        ProductoRepository $productoRepo ){
+            $this->_clienteRepo = $clienteRepo;
+            $this->_productoRepo = $productoRepo;
     }
 
     public function findCliente(Request $req)
     {
         return $this->_clienteRepo
+                    ->findByName($req->input('q'));
+    }
+
+    public function findProducto(Request $req)
+    {
+        return $this->_productoRepo
                     ->findByName($req->input('q'));
     }
     
@@ -52,15 +63,6 @@ class FacturaController extends Controller
             ]);
     }
 
-    
-    public function geteditar_factura($id){
-        $factura = factura::query()->where('CL_ID', '=', $id)->first();
-        $estados = estado::all()->pluck('ES_nombre','ES_ID');
-        return view('factura.modificar_factura',[
-            'estados' => $estados, 
-            'factura' => $factura, 
-        ]);
-    }
     
     public function geteliminar_factura($id){
 

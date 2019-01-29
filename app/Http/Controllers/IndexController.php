@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Producto;
 use App\Estado;
 use App\Ciudad;
+use App\Cliente;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -28,8 +29,18 @@ class IndexController extends Controller
     }
 
     public function getestado($id){
-        $estado = Estado::where('ES_ID',$id)->pluck('ES_nombre');
+        $estado = Cliente::find($id)->estado;
         return json_encode($estado);
+    }
+
+    public function getciudad($id){
+        $ciudad = Cliente::find($id)->ciudad;
+        return json_encode($ciudad);
+    }
+
+    public function getproducto($id){
+        $producto = Producto::find($id);
+        return json_encode($producto);
     }
 
     public function gethome(){

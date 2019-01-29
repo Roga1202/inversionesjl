@@ -15,6 +15,10 @@ class Estado extends Model
     protected $table = 'estado';
     protected $fillable = ['ES_nombre'];
 
+    public function cliente()
+    {
+        return $this->belongsTo('App\Cliente','CL_ID','ES_ID');
+    }
 
     public static function estados($id){
         return Ciudad::where('ES_ID','=',$id)->get();

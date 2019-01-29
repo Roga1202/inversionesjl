@@ -120,29 +120,25 @@
 
                             <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span><select class="form-control @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
+                            
 
-<<<<<<< HEAD
-                            <div id="form-group">
-                                <label for="estado">Selecciona tu estado</label>
-                                <select class="selectpicker @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span><select class="form-control @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
                                     @if ($errors->has('estado'))
-                                        @foreach ($errors->get('estado') as $error)
-                                            <div class="invalid-feedback">{{ $error }}</div>   
-                                        @endforeach
-                                    @endif
-                                    <option value="">Selecciona tu estado</option>
-=======
-                            <option value="">Selecciona tu estado</option>
->>>>>>> origin/Frontend
-                                    @if (isset($estados))
-                                        @foreach ($estados as $id => $nombre)
-                                            <option value="{{$id}}">{{$nombre}}</option>
-                                        @endforeach
-                                    @endif
-                                    @if (empty($estados))
-                                        <option value="">No hay estados creados o no se cargaron</option>
-                                    @endif
-                                </select>
+                                    @foreach ($errors->get('estado') as $error)
+                                        <div class="invalid-feedback">{{ $error }}</div>   
+                                    @endforeach
+                                @endif
+                                <option value="">Selecciona tu estado</option>
+                                        @if (isset($estados))
+                                            @foreach ($estados as $id => $nombre)
+                                                <option value="{{$id}}">{{$nombre}}</option>
+                                            @endforeach
+                                        @endif
+                                        @if (empty($estados))
+                                            <option value="">No hay estados creados o no se cargaron</option>
+                                        @endif
+                                    </select>
                             </div>
 
 

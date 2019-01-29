@@ -8,6 +8,7 @@ class Ciudad extends Model
 {
     protected $guarded = [];
 
+    protected $primaryKey = 'CI_ID';
     const CREATED_AT = 'CI_inicio';
     const UPDATED_AT = 'CI_actualizacion';
 

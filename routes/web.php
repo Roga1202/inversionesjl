@@ -49,10 +49,17 @@ Route::get('cliente/eliminar/{id}', 'ClienteController@geteliminar_cliente')->wh
 Route::get('factura/crear','FacturaController@getcrear_factura');
 Route::post('factura/crear','FacturaController@postcrear_factura');
 Route::get('factura/ver/{id}', 'FacturaController@getver')->where('id', '[0-9]+');
+Route::get('factura/ver/{id}', 'FacturaController@getver')->where('id', '[0-9]+');
 
 
+Route::get('/ciudad/{id}', 'IndexController@getciudad')->where('id', '[0-9]+');
 Route::get('/ciudades/{id}', 'IndexController@getciudades')->where('id', '[0-9]+');
+
 Route::get('/estado/{id}', 'IndexController@getestado')->where('id', '[0-9]+');
+
 Route::get('/factura/findCliente', 'FacturaController@findCliente');
+Route::get('/factura/findProducto', 'FacturaController@findProducto');
+
+Route::get('/producto/{id}', 'IndexController@getproducto')->where('id', '[0-9]+');
 
 ?>
