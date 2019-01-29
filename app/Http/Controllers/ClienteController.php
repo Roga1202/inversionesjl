@@ -91,5 +91,9 @@ class ClienteController extends Controller
             'evento' => $evento,
             ]);
     }
-    //
+
+    public function getcliente($id){
+        $cliente = Cliente::find($id);
+        return $cliente;
+    }
 }

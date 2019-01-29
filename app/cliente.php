@@ -17,6 +17,7 @@ class Cliente extends Model
     protected $table = 'cliente';
     protected $fillable= ['CL_primer_nombre','CL_otros_nombres','CL_primer_apellido','CL_otros_apellidos','CL_numero_compras','CL_CI','CL_telefono','CL_direccion','CL_correo','CL_empresa_envio','CL_estado','CL_ciudad'];
 
+    
     public function estado()
     {
         return $this->hasOne('App\Estado', 'ES_ID', 'CL_ID');

@@ -16,4 +16,14 @@ class Factura extends Model
     protected $table = 'factura';
     protected $fillable= ['CL_ID','FA_precio_neto','FA_IVA','FA_precio_total'];
 
+    
+    public function detalles_factura()
+    {
+        return $this->hasMany('App\Factura','DF_ID','FA_ID');
+    }
+
+    public function Cliente()
+    {
+        return $this->belongsTo('App\Cliente','CL_ID','FA_ID');
+    }
 }

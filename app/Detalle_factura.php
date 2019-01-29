@@ -15,6 +15,11 @@ class Detalle_factura extends Model
 
 
     protected $table = 'detalles_factura';
-    protected $fillable = ['FA_ID','PR_ID','DF_cantidad','DF_precio'];
+    protected $fillable = ['FA_ID','PR_ID','DF_cantidad','DF_precio','DF_total'];
     
+    
+    public function Factura()
+    {
+        return $this->belongsTo('App\Producto','PR_ID','DF_ID');
+    }
 }

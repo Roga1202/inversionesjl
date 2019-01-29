@@ -50,6 +50,9 @@
         <tr>
             <th style="width:40px;"></th>
             <th>Producto</th>
+            <th style="width:100px;">Presentacion</th>
+            <th style="width:100px;">Unidad</th>
+            <th style="width:100px;"></th>
             <th style="width:100px;">Cantidad</th>
             <th style="width:100px;">P.U</th>
             <th style="width:100px;">Total</th>
@@ -61,6 +64,9 @@
                 <button onclick={__removeProductFromDetail} class="btn btn-danger btn-xs btn-block">X</button>
             </td>
             <td>{nombre}</td>
+            <td class="text-right">{presentacion}</td>
+            <td class="text-right">{unidad}</td>
+            <td class="text-right"></td>
             <td class="text-right">{cantidad}</td>
             <td class="text-right">$ {precio}</td>
             <td class="text-right">$ {total}</td>
@@ -68,15 +74,15 @@
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="4" class="text-right"><b>IVA</b></td>
+            <td colspan="7" class="text-right"><b>IVA</b></td>
             <td class="text-right">$ {iva.toFixed(2)}</td>
         </tr>
         <tr>
-            <td colspan="4" class="text-right"><b>Sub Total</b></td>
+            <td colspan="7" class="text-right"><b>Sub Total</b></td>
             <td class="text-right">$ {subTotal.toFixed(2)}</td>
         </tr>
         <tr>
-            <td colspan="4" class="text-right"><b>Total</b></td>
+            <td colspan="7" class="text-right"><b>Total</b></td>
             <td class="text-right">$ {total.toFixed(2)}</td>
         </tr>
         </tfoot>
@@ -113,7 +119,7 @@
             if(validacion){
                 self.detalles.push({
                     id : self.PR_ID,
-                    nombre : self.nombre_producto,
+                    nombre : self.PR_ID,
                     cantidad :  parseInt(self.refs.cantidad.value),
                     precio : parseFloat(self.precio),    
                     total : parseFloat(self.refs.cantidad.value * self.precio)
@@ -122,7 +128,7 @@
             self.PR_ID = '';
             self.precio = '';
             self.refs.cantidad.value = '';
-            self.nombre_producto = '';
+            self.PR_ID = '';
             console.log(self.detalles);
             __calculate();
             document.getElementById("producto").value = "";
@@ -130,14 +136,15 @@
         }
 
         __save() {
+            console.log(self.detalles);
             var validacion= validar_cliente(self.CL_ID,self.nombre_cliente);
             if(validacion){
                 $.post(baseUrl('factura/crear'), {
-                    client_id: self.CL_ID,
+                    cliente_id: self.CL_ID,
                     iva: self.iva,
-                    subTotal: self.subTotal,
                     total: self.total,
-                    detail: self.detalle
+                    subTotal: self.subTotal,
+                    detalles: self.detalles,
                 }, function(r){
                     if(r.response) {
                         window.location.href = baseUrl('factura');
@@ -173,7 +180,7 @@
                     onClickEvent: function() {
                         var e = cliente.getSelectedItemData();
                         self.CL_ID = e.CL_ID;
-                        self.nombre_cliente = e.PR_nombre;
+                        self.nombre_cliente = e.CL_primer_nombre;
                         self.apellido = e.CL_primer_apellido;
                         self.cedula = e.CL_CI;
                         self.direccion = e.CL_direccion;
@@ -258,6 +265,7 @@
             }
             if(producto.lenght>20){
                 alert("El campo producto es muy largo");
+                return false;
             }
             validacion_producto= validar_producto($id,$nombre);
             if(validacion_producto != producto){
@@ -318,8 +326,9 @@
             }
             if(cliente.lenght>20){
                 alert("El campo cliente es muy largo");
+                return false;
             }
-            
+            return true;
         }
 
 

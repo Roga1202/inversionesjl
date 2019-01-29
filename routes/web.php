@@ -42,6 +42,7 @@ Route::post('cliente/crear','ClienteController@postcrear_cliente');
 Route::get('cliente/actualizar/{id}', 'ClienteController@geteditar_cliente')->where('id', '[0-9]+');
 Route::post('cliente/actualizar/{id}', 'ClienteController@posteditar_cliente')->where('id', '[0-9]+');
 Route::get('cliente/eliminar/{id}', 'ClienteController@geteliminar_cliente')->where('id', '[0-9]+');
+Route::get('cliente/{id}', 'ClienteController@getcliente')->where('id', '[0-9]+');
 
 
 //factura

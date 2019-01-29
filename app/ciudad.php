@@ -19,4 +19,10 @@ class Ciudad extends Model
     public static function ciudades($id){
         return Ciudad::where('ES_ID','=',$id)->get();
     }
+
+    
+    public function Estado()
+    {
+        return $this->hasOne('App\Estado','ES_ID','CI_ID');
+    }
 }
