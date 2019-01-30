@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\detalles_factura;
+use App\detalle_factura;
 
-$factory->define(detalles_factura::class, function (Faker $faker) {
+$factory->define(detalle_factura::class, function (Faker $faker) {
     return [
         //
         'FA_ID' => '1',

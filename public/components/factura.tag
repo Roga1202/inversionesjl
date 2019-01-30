@@ -88,7 +88,7 @@
         </tfoot>
     </table>
 
-    <button onclick={__save} class="btn btn-default btn-lg btn-block">
+    <button class="btn btn-default btn-lg btn-block">
         Guardar
     </button>
 
@@ -119,7 +119,7 @@
             if(validacion){
                 self.detalles.push({
                     id : self.PR_ID,
-                    nombre : self.PR_ID,
+                    nombre : self.nombre_producto,
                     cantidad :  parseInt(self.refs.cantidad.value),
                     precio : parseFloat(self.precio),    
                     total : parseFloat(self.refs.cantidad.value * self.precio)
@@ -128,15 +128,13 @@
             self.PR_ID = '';
             self.precio = '';
             self.refs.cantidad.value = '';
-            self.PR_ID = '';
-            console.log(self.detalles);
+            self.nombre_producto = '';
             __calculate();
             document.getElementById("producto").value = "";
             }
         }
 
         __save() {
-            console.log(self.detalles);
             var validacion= validar_cliente(self.CL_ID,self.nombre_cliente);
             if(validacion){
                 $.post(baseUrl('factura/crear'), {
@@ -147,7 +145,7 @@
                     detalles: self.detalles,
                 }, function(r){
                     if(r.response) {
-                        window.location.href = baseUrl('factura');
+                        window.location.href = baseUrl('home');
                     } else {
                         alert('Ocurrio un error');
                     }

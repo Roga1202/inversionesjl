@@ -6,7 +6,7 @@ use App\Factura;
 use App\Detalle_factura;
 use DB;
 
-class InvoiceRepository {
+class FacturaRepository {
     private $model;
     
     public function __construct(){
@@ -18,7 +18,7 @@ class InvoiceRepository {
     }
 
     public function getAll() {
-        return $this->model->orderBy('id', 'desc')->get();
+        return $this->model->orderBy('FA_ID', 'desc')->get();
     }
 
 
@@ -34,17 +34,20 @@ class InvoiceRepository {
             $this->model->FA_precio_total = $data->FA_precio_total;
             $this->model->save();
             $detalles = [];
+
             foreach($data->detalles as $d) {
                 $obj = new Detalle_factura;
-                $obj->PR_ID = $d->id;
-                $obj->DF_cantidad = $d->cantidad;
-                $obj->DF_precio = $d->precio;
-                $detalles[] = $obj;
+                $obj->PR_ID = $d->PR_ID;
+                $obj->DF_cantidad = $d->DF_cantidad;
+                $obj->DF_precio = $d->DF_precio;
+                $obj->DF_precio_total = $d->DF_precio_total;
+                $detalle[] = $obj;
             }
-            $this->model->detalles()->saveMany($detalles);
+            $this->model->detalle_factura()->saveMany($detalle);
             $return->response = true;
             DB::commit();
         } catch (\Exception $e){
+            dd($e);
             DB::rollBack();
         }
         return json_encode($return);

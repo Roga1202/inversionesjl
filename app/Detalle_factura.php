@@ -14,12 +14,19 @@ class Detalle_factura extends Model
     protected $primaryKey= 'DF_ID';
 
 
-    protected $table = 'detalles_factura';
-    protected $fillable = ['FA_ID','PR_ID','DF_cantidad','DF_precio','DF_total'];
-    
-    
-    public function Factura()
+    protected $table = 'detalle_factura';
+    protected $fillable = ['FA_ID','PR_ID','DF_cantidad','DF_precio','DF_precio_total'];
+
+        
+        public function Factura()
     {
-        return $this->belongsTo('App\Producto','PR_ID','DF_ID');
+        return $this->belongsTo('App\Factura', 'FA_ID', 'DF_ID');
+    }
+
+
+
+    public function Producto()
+    {
+        return $this->belongsTo('App\Producto','PR_ID','PR_ID');
     }
 }

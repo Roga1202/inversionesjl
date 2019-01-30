@@ -49,8 +49,9 @@ Route::get('cliente/{id}', 'ClienteController@getcliente')->where('id', '[0-9]+'
 
 Route::get('factura/crear','FacturaController@getcrear_factura');
 Route::post('factura/crear','FacturaController@postcrear_factura');
-Route::get('factura/ver/{id}', 'FacturaController@getver')->where('id', '[0-9]+');
-Route::get('factura/ver/{id}', 'FacturaController@getver')->where('id', '[0-9]+');
+Route::get('factura/detalle/{id}', 'FacturaController@getdetalle')->where('id', '[0-9]+');
+Route::get('facturas', 'FacturaController@getindex')->where('id', '[0-9]+');
+Route::get('/factura/pdf/{id}', 'FacturaController@getpdf')->where('id', '[0-9]+');
 
 
 Route::get('/ciudad/{id}', 'IndexController@getciudad')->where('id', '[0-9]+');

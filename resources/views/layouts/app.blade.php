@@ -41,6 +41,7 @@
     <p><a href="/cliente/crear" style="color: black;"><i class="material-icons" style="color:black">supervisor_account</i> Agregar cliente </a></p>
     <p><a href="/producto/crear" style="color: black;"><i class="material-icons" style="color:black">redeem</i> Agregar producto</a></p>
     <p><a href="/factura/crear" style="color: black;"><i class="material-icons" style="color:black">assignment</i> Hacer Factura</a></p>
+    <p><a href="/facturas" style="color: black;"><i class="material-icons" style="color:black">assignment</i>Facturas</a></p>
     </div>
 
     <div class="col-sm-8 text-left">

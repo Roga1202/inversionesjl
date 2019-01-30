@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableDetallesFactura extends Migration
+class CreateTableDetalleFactura extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableDetallesFactura extends Migration
      */
     public function up()
     {
-        Schema::create('detalles_factura', function (Blueprint $table) {
+        Schema::create('detalle_factura', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_spanish2_ci';
@@ -37,6 +37,6 @@ class CreateTableDetallesFactura extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalles_factura');
+        Schema::dropIfExists('detalle_factura');
     }
 }
