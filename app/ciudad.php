@@ -25,4 +25,9 @@ class Ciudad extends Model
     {
         return $this->hasOne('App\Estado','ES_ID','CI_ID');
     }
+
+    public function cliente()
+    {
+        return $this->belongsTo('App\Cliente','CL_ID','CI_ID');
+    }
 }

@@ -17,11 +17,19 @@ class Estado extends Model
 
     public function cliente()
     {
-        return $this->belongsTo('App\Cliente','CL_ID','ES_ID');
+        return $this->belongsTo('App\Cliente','CL_estado','ES_ID');
+    }
+
+    
+    public function ciudad()
+    {
+        return $this->hasMany('App\Ciudad','CI_ID','ES_ID');
     }
 
     public static function estados($id){
         return Ciudad::where('ES_ID','=',$id)->get();
     }
+
+
 
 }

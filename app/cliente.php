@@ -22,10 +22,10 @@ class Cliente extends Model
     {
         return $this->hasOne('App\Estado', 'ES_ID', 'CL_ID');
     }
-    
+
     public function ciudad()
     {
-        return $this->hasOne('App\Ciudad', 'CI_ID', 'CL_ID');
+        return $this->belongsTo('App\Ciudad', 'CL_ID', 'CI_ID');
     }
 }
 

@@ -88,7 +88,7 @@
         </tfoot>
     </table>
 
-    <button class="btn btn-default btn-lg btn-block">
+    <button onclick={__save} class="btn btn-default btn-lg btn-block">
         Guardar
     </button>
 
@@ -161,8 +161,8 @@
             });
 
             self.total = total;
-            self.subTotal = parseFloat(total/ 12);
-            self.iva = parseFloat(total - self.subTotal);
+            self.iva = parseFloat(total/ 12);
+            self.subTotal = parseFloat(total - self.iva);
         }
 
 

@@ -29,12 +29,13 @@ class IndexController extends Controller
     }
 
     public function getestado($id){
+        // dd($id);
         $estado = Cliente::find($id)->estado;
         return json_encode($estado);
     }
 
     public function getciudad($id){
-        $ciudad = Cliente::find($id)->ciudad;
+        $ciudad = Ciudad::find($id);
         return json_encode($ciudad);
     }
 
