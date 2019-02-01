@@ -11,6 +11,13 @@ use App\Http\Requests\updated_producto_request;
 class productoController extends Controller
 {
     
+    public function getindex(){
+        $producto = Producto::paginate(15);
+        return view('producto.index',[
+            'productos' => $producto,
+        ]);
+    }
+    
     public function getcrear_producto(){
         $categorias= Categoria::query()->orderBy('CA_ID', 'asc')->get();
 

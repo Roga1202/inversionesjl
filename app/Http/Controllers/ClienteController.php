@@ -11,6 +11,13 @@ use App\Cliente;
 class ClienteController extends Controller
 {
     
+    public function getindex(){
+        $cliente = Cliente::paginate(15);
+        return view('cliente.index',[
+            'clientes' => $cliente,
+        ]);
+    }
+
     public function getcrear_cliente(){
         $estados = Estado::all()->pluck('ES_nombre','ES_ID');
         return view('cliente.crear_cliente',[

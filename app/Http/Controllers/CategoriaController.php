@@ -9,6 +9,13 @@ use App\Categoria;
 class CategoriaController extends Controller
 {
     
+    public function getindex(){
+        $categoria = Categoria::paginate(15);
+        return view('categoria.index',[
+            'categorias' => $categoria,
+        ]);
+    }
+
     public function getcrear_categoria(){
         return view('categoria.crear_categoria');
     }

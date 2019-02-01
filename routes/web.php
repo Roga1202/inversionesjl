@@ -14,13 +14,9 @@
 Route::get('/', 'IndexController@getindex');
 Route::get('/home', 'IndexController@gethome');
 
-
-//prueba
-Route::get('prueba', 'IndexController@prueba');
-
-
 //categoria
 
+Route::get('categoria/index','CategoriaController@getindex');
 Route::get('categoria/crear','CategoriaController@getcrear_categoria');
 Route::post('categoria/crear','CategoriaController@postcrear_categoria');
 Route::get('categoria/actualizar/{id}', 'CategoriaController@geteditar_categoria')->where('id', '[0-9]+');
@@ -29,6 +25,7 @@ Route::get('categoria/eliminar/{id}', 'CategoriaController@geteliminar_categoria
 
 //producto
 
+Route::get('producto/index','ProductoController@getindex');
 Route::get('producto/crear','ProductoController@getcrear_producto');
 Route::post('producto/crear','ProductoController@postcrear_producto');
 Route::get('producto/actualizar/{id}', 'ProductoController@geteditar_producto')->where('id', '[0-9]+');
@@ -37,6 +34,7 @@ Route::get('producto/eliminar/{id}', 'ProductoController@geteliminar_producto')-
 
 //cliente
 
+Route::get('cliente/index','ClienteController@getindex');
 Route::get('cliente/crear','ClienteController@getcrear_cliente');
 Route::post('cliente/crear','ClienteController@postcrear_cliente');
 Route::get('cliente/actualizar/{id}', 'ClienteController@geteditar_cliente')->where('id', '[0-9]+');
@@ -47,10 +45,11 @@ Route::get('cliente/{id}', 'ClienteController@getcliente')->where('id', '[0-9]+'
 
 //factura
 
+Route::get('factura/crear','FacturaController@getindex');
 Route::get('factura/crear','FacturaController@getcrear_factura');
 Route::post('factura/crear','FacturaController@postcrear_factura');
 Route::get('factura/detalle/{id}', 'FacturaController@getdetalle')->where('id', '[0-9]+');
-Route::get('facturas', 'FacturaController@getindex')->where('id', '[0-9]+');
+Route::get('factura/index', 'FacturaController@getindex')->where('id', '[0-9]+');
 Route::get('/factura/pdf/{id}', 'FacturaController@getpdf')->where('id', '[0-9]+');
 
 

@@ -37,12 +37,10 @@
     <div class="container-fluid text-center">    
     <div class="row content">
     <div class="col-sm-2 sidenav">
-    <p><a href="/categoria/crear" style="color: black;"><span class="glyphicon glyphicon-level-up"></span> Categorias</a></p>
-    <p><a href="/categoria/actualizar/1" style="color: black;"><span class="glyphicon glyphicon-level-up"></span> Categorias</a></p>
-    <p><a href="/cliente/crear" style="color: black;"><span class="glyphicon glyphicon-user"></span> Agregar cliente </a></p>
-    <p><a href="/producto/crear" style="color: black;"><span class="glyphicon glyphicon-baby-formula"></span> Agregar producto</a></p>
-    <p><a href="/factura/crear" style="color: black;"><span class="glyphicon glyphicon-print"></span> Hacer Factura</a></p>
-    <p><a href="/facturas" style="color: black;"><span class="glyphicon glyphicon-list-alt"></span> Facturas</a></p>
+    <p><a href="/categoria/index" style="color: black;"><span class="glyphicon glyphicon-level-up"></span>Categorias</a></p>
+    <p><a href="/cliente/index" style="color: black;"><span class="glyphicon glyphicon-user"></span>Clientes</a></p>
+    <p><a href="/producto/index" style="color: black;"><span class="glyphicon glyphicon-baby-formula"></span>Productos</a></p>
+    <p><a href="/factura/index" style="color: black;"><span class="glyphicon glyphicon-print"></span>Facturas</a></p>
     </div>
 
     <div class="col-sm-8 text-left">
