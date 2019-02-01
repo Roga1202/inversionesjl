@@ -45,6 +45,7 @@ class FacturaRepository {
             }
             $this->model->detalle_factura()->saveMany($detalle);
             $return->response = true;
+            $return->id = $this->model->FA_ID;
             DB::commit();
         } catch (\Exception $e){
             dd($e);

@@ -145,7 +145,7 @@
                     detalles: self.detalles,
                 }, function(r){
                     if(r.response) {
-                        window.location.href = baseUrl('home');
+                        window.location.href = baseUrl('/factura/pdf/'+r.id);
                     } else {
                         alert('Ocurrio un error');
                     }
