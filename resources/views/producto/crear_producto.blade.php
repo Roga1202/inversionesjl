@@ -10,7 +10,7 @@
             </div>
         @endif
     @endisset
-    <div class="col-md-8" style="text-align:center,auto;">
+    <div class="col-md-9" style="text-align:center,auto; padding:10px; margin: 30px;">
     <h2 style="text-align:center, auto;">Producto</h2>
     <form name="agregar_producto" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/producto/crear" method="post">
             {{ csrf_field() }}

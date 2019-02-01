@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9" style="padding:10px; margin: 30px;">
             <h2 class="page-header">
                 Comprobante # {{ str_pad ($model->FA_ID, 7, '0', STR_PAD_LEFT) }}
             </h2>

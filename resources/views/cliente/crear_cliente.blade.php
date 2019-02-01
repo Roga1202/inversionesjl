@@ -118,13 +118,12 @@
                                 @endif
                             </div>
 
-                            <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span><select class="form-control @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
-                            
+                           
 
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span><select class="form-control @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
-                                    @if ($errors->has('estado'))
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker">
+                                </i></span><select class="form-control @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
+                                @if ($errors->has('estado'))
                                     @foreach ($errors->get('estado') as $error)
                                         <div class="invalid-feedback">{{ $error }}</div>   
                                     @endforeach
@@ -140,7 +139,6 @@
                                         @endif
                                     </select>
                             </div>
-
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
@@ -161,6 +159,7 @@
                                     @endif
                                 </select>
                             </div>
+
 
                             <div id="completo" style="text-align:center;">
                                 <br>

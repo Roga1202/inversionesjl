@@ -37,11 +37,12 @@
     <div class="container-fluid text-center">    
     <div class="row content">
     <div class="col-sm-2 sidenav">
-    <p><a href="/categoria/crear" style="color: black;"><i class='fas'>&#xf54e;</i> Agregar Categoria</a></p>
-    <p><a href="/cliente/crear" style="color: black;"><i class="material-icons" style="color:black">supervisor_account</i> Agregar cliente </a></p>
-    <p><a href="/producto/crear" style="color: black;"><i class="material-icons" style="color:black">redeem</i> Agregar producto</a></p>
-    <p><a href="/factura/crear" style="color: black;"><i class="material-icons" style="color:black">assignment</i> Hacer Factura</a></p>
-    <p><a href="/facturas" style="color: black;"><i class="material-icons" style="color:black">assignment</i>Facturas</a></p>
+    <p><a href="/categoria/crear" style="color: black;"><span class="glyphicon glyphicon-level-up"></span> Categorias</a></p>
+    <p><a href="/categoria/actualizar/1" style="color: black;"><span class="glyphicon glyphicon-level-up"></span> Categorias</a></p>
+    <p><a href="/cliente/crear" style="color: black;"><span class="glyphicon glyphicon-user"></span> Agregar cliente </a></p>
+    <p><a href="/producto/crear" style="color: black;"><span class="glyphicon glyphicon-baby-formula"></span> Agregar producto</a></p>
+    <p><a href="/factura/crear" style="color: black;"><span class="glyphicon glyphicon-print"></span> Hacer Factura</a></p>
+    <p><a href="/facturas" style="color: black;"><span class="glyphicon glyphicon-list-alt"></span> Facturas</a></p>
     </div>
 
     <div class="col-sm-8 text-left">

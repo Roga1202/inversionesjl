@@ -10,13 +10,14 @@
             </div>
         @endif
     @endisset
+    <div class="col-md-9" style="padding:10px; margin: 30px;">
     <h2 style="align: auto;">Categoria</h2>
     <form name="agregar_categoria" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/categoria/crear" method="post" style="align: center, auto;">
         <!-- no se toca -->
         {{ csrf_field() }}
 
             <div class="input-group">
-                   <div class="col-md-8" text-align="center">
+                   <div class="col-md-9" text-align="center">
                         <!-- no se toca los if , si modificas dejar el if en la class -->
                         <div class="input-group" >
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
@@ -46,4 +47,5 @@
 
           
     </form>
+    </div>
 @endsection
