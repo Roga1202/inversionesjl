@@ -78,44 +78,6 @@
       </a>
   </div>
 
-  <div id="col-md-8">
-    
-    <h2 class="page-headder">
-      <center>Facturas</center>
-    </h2>
-
-    <a class="btn btn-default btn-lg btn-block" href="/factura/crear">Nueva Factura</a>
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Cliente</th>
-          <th style="width:100px;" class="text-right">IVA</th>
-          <th style="width:100px;" class="text-right">Sub-total</th>
-          <th style="width:100px;" class="text-right">Total</th>
-          <th style="width:100px;" class="text-right">Fecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for ($i = 1; $i <= 10; $i++)
-          @php
-              $total = 1180* $i;
-              $iva = $total / 12;
-              $subTotal = $total - $iva;
-          @endphp
-          <tr>
-            <td>Cliente {{ $i }}</td>
-            <td class="text-right">{{ number_format($iva,2) }}</td>
-            <td class="text-right">{{ number_format($subTotal,2) }}</td>
-            <td class="text-right">{{ number_format($total,2) }}</td>
-            <td class="text-right">hi</td>
-            </tr>
-        @endfor
-      </tbody>
-    </table>
-
-
-  </div>
   @endsection
 
   @section('script')
