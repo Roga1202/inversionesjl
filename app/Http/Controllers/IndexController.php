@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     //
+    
+
+    public function get404(){
+        return view('404');
+    }
+
 
     public function getindex(){
         return view('index');

@@ -53,6 +53,7 @@ Route::get('factura/index', 'FacturaController@getindex')->where('id', '[0-9]+')
 Route::get('/factura/pdf/{id}', 'FacturaController@getpdf')->where('id', '[0-9]+');
 
 
+// utilidad
 Route::get('/ciudad/{id}', 'IndexController@getciudad')->where('id', '[0-9]+');
 Route::get('/ciudades/{id}', 'IndexController@getciudades')->where('id', '[0-9]+');
 
@@ -62,5 +63,7 @@ Route::get('/factura/findCliente', 'FacturaController@findCliente');
 Route::get('/factura/findProducto', 'FacturaController@findProducto');
 
 Route::get('/producto/{id}', 'IndexController@getproducto')->where('id', '[0-9]+');
+
+Route::fallback('IndexController@get404');
 
 ?>
