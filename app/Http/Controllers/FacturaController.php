@@ -9,6 +9,10 @@ use App\Repositories\FacturaRepository;
 use App\Http\Requests\create_factura_request;
 use App\Http\Requests;
 use PDF;
+use App\Factura;
+use App\Cliente;
+use App\Estado;
+use App\Ciudad;
 
 class FacturaController extends Controller
 {
@@ -31,8 +35,9 @@ class FacturaController extends Controller
 
     public function getindex(){
 
+        $factura = Factura::orderBy('FA_ID','DESC')->paginate(15);
         return view('factura.index',[
-            'model' => $this->_facturaRepo->getAll(),
+            'facturas' => $factura,
         ]);
     }
     
@@ -46,9 +51,29 @@ class FacturaController extends Controller
     public function getpdf($id){
 
         $model = $this->_facturaRepo->get($id);
+        
+        $id_cliente=$model->CL_ID;
+
+        $cliente = Cliente::find($id_cliente);
+
+        $id_estado= $cliente['CL_estado'];
+        $id_ciudad= $cliente['CL_ciudad'];
+
+        $estado = Estado::find($id_estado);
+        $ciudad = Ciudad::find($id_ciudad);
+
+        $estado = $estado['ES_nombre'];
+        // dd($estado);
+        $ciudad = $ciudad['CI_nombre'];
+
+        
+        
+        
         $factura_name = sprintf('comprobante-%s.pdf', str_pad ($model->FA_ID, 7, '0', STR_PAD_LEFT));
         $pdf = PDF::loadView('factura.pdf', [
-            'model' => $model
+            'model' => $model,
+            'estado' => $estado,
+            'ciudad' => $ciudad
         ]);
         return $pdf->download($factura_name);
     }

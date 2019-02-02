@@ -26,19 +26,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($model as $m)
+                    @foreach ($facturas as $factura)
                     <tr>
                         <td>
-                <a href="/factura/detalle/{{$m->FA_ID}}" style="color:white;  size:10px;"class="btn btn-primary btn-xs"  >
-                                {{ $m->cliente->CL_primer_nombre }} {{ $m->cliente->CL_primer_apellido }}</a>
+                <a href="/factura/detalle/{{$factura->FA_ID}}" style="color:white;  size:10px;"class="btn btn-primary btn-xs"  >
+                                {{ $factura->cliente->CL_primer_nombre }} {{ $factura->cliente->CL_primer_apellido }}</a>
                         </td>
-                        <td class="text-right">{{$m->cliente->CL_CI}}</td>
-                        <td class="text-right">$ {{number_format($m->FA_IVA, 2)}}</td>
-                        <td class="text-right">$ {{number_format($m->FA_precio_neto, 2)}}</td>
-                        <td class="text-right">$ {{number_format($m->FA_precio_total, 2)}}</td>
-                        <td class="text-right">{{ $m->FA_inicio  }}</td>
+                        <td class="text-right">{{$factura->cliente->CL_CI}}</td>
+                        <td class="text-right">$ {{number_format($factura->FA_IVA, 2)}}</td>
+                        <td class="text-right">$ {{number_format($factura->FA_precio_neto, 2)}}</td>
+                        <td class="text-right">$ {{number_format($factura->FA_precio_total, 2)}}</td>
+                        <td class="text-right">{{ $factura->FA_inicio  }}</td>
                         <td class="text-right">
-                            <a class="btn btn-success btn-block btn-xs"  href="{{ url('factura/pdf/' . $m->FA_ID) }}">
+                            <a class="btn btn-success btn-block btn-xs"  href="{{ url('factura/pdf/' . $factura->FA_ID) }}">
                                 <i class="fa fa-file-pdf-o" ></i> Descargar
                             </a>
                             
@@ -49,23 +49,14 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>
 
-            <!-- LOL CREA UNA PAGINACIÓN... DESPUES DE TANTO SE ALMACENAN EN LA OTRA.
-        SI PUEDE // SI NO ELIMINA ESTE CODIGO
-          
-        <div class="container" style="text-align:auto;">                
-            <ul class="pagination pagination-lg" >
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-            </ul>
-        </div> 
-                       -->
-       
-    </div>
+            </table>
+            @if (count($facturas))
+            <div class="mt-2 mx-auto">
+                {{ $facturas->links('pagination::bootstrap-4') }}    
+            </div>
+            @endif
+        </div>
         
     </div>
     

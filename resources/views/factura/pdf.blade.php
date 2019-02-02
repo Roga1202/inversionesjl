@@ -1,7 +1,7 @@
 
     <html lang="{{ app()->getLocale() }}">
     <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap.css">
         <style>
             .header{background:white;color:#444;border-bottom:1px solid #ddd;padding:10px;}
@@ -40,8 +40,16 @@
             <td>{{ $model->cliente->CL_CI }}</td>
         </tr>
         <tr>
+            <th>Estado</th>
+            <td>{{ $estado}}</td>
+        </tr>
+        <tr>
+            <th>Ciudad</th>
+            <td>{{ $ciudad }}</td>
+        </tr>
+        <tr>
             <th>Dirección</th>
-            <td>{{ $model->cliente->address }}</td>
+            <td>{{ $model->cliente->CL_direccion }}</td>
         </tr>
     </table>
 
@@ -100,31 +108,37 @@
  <table class="items" style="text-align: center, auto; font-size: 30px;">
         <tr>
             <th style="text-align:justify;">
+                Factura
+            </th>
+            <td> N° {{ $model->FA_ID }}</td>y>
+        </tr>
+        <tr>
+            <th style="text-align:justify;">
                 Nombre
             </th>
-            <td> Aqui va lo que tu sabes </td>y>
+            <td>{{ $model->cliente->CL_primer_nombre }} {{ $model->cliente->CL_primer_apellido }}</td>y>
         </tr>
         <tr>
             <th style="text-align:justify;">Cedula</th>
-           <td> Aqui va lo que tu sabes </td>
+            <td>{{ $model->cliente->CL_CI }}</td>
         </tr>
         <tr>
             <th style="text-align:justify;">Telefono</th>
-           <td> Aqui va lo que tu sabes </td>
+           <td>{{ $model->cliente->CL_telefono }}</td>
         </tr>
          <tr>
             <th style="text-align:justify;">Empresa de envio</th>
            
-           <td> Aqui va lo que tu sabes </td>
+           <td>{{ $model->cliente->CL_empresa_envio }}</td>
         
         </tr>
          <tr>
             <th style="text-align:justify;">Ciudad</th>
-            <td> Aqui va lo que tu sabes </td>
+            <td>{{ $ciudad }}</td>
         </tr>
          <tr>
             <th style="text-align:justify;">Dirección</th>
-           <td> Aqui va lo que tu sabes </td>
+            <td>{{ $estado }}</td>
         </tr>
     </table>
     </body>
