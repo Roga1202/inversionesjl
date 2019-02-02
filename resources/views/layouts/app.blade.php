@@ -37,8 +37,7 @@
     <div class="container-fluid text-center">    
     <div class="row content">
     <div class="col-sm-2 sidenav">
-    <p><a href="/categoria/crear" style="color: black;"><span class="glyphicon glyphicon-level-up"></span> Categorias</a></p>
-    <p><a href="/categoria/actualizar/1" style="color: black;"><span class="glyphicon glyphicon-level-up"></span> Categorias</a></p>
+    <p><a href="/categoria/crear" style="color: black;"><span class="glyphicon glyphicon-level-up"></span> Agregar Categoria</a></p>
     <p><a href="/cliente/crear" style="color: black;"><span class="glyphicon glyphicon-user"></span> Agregar cliente </a></p>
     <p><a href="/producto/crear" style="color: black;"><span class="glyphicon glyphicon-baby-formula"></span> Agregar producto</a></p>
     <p><a href="/factura/crear" style="color: black;"><span class="glyphicon glyphicon-print"></span> Hacer Factura</a></p>
@@ -60,7 +59,7 @@
         </tbody>
         
         <footer class="container-fluid text-center">
-        <p> <a href="https://www.instagram.com/tomate.agencia/" style="color: white;"> Elaborado por Proyecto MARK</p></a>
+        <p style="color: white;">Elaborado por <br><EM>Proyecto MARK</p>
         @yield('footer')
         </footer>
         @yield('script')
