@@ -58,7 +58,7 @@
         </tbody>
         
         <footer class="container-fluid text-center">
-        <p> <a href="https://www.instagram.com/tomate.agencia/" style="color: white;"> Elaborado por Proyecto MARK</p></a>
+        <p style="color: white;">Elaborado por <br><EM>Proyecto MARK</p>
         @yield('footer')
         </footer>
         @yield('script')
