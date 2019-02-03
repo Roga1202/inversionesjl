@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('head')
-    <title>Inversionesjl-Categoria</title>
+    <title>Inversionesjl-Categorias</title>
 @endsection
 @section('block')
     @isset($errors)
@@ -37,7 +37,7 @@
                     
                     <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <a href="/home" class="btn btn-danger">Regresar</a>
+                        <a href="/categoria/index" class="btn btn-danger">Regresar</a>
                         <input type="submit" class="btn btn-primary" value="Guardar">
                     </div>
                 </div>

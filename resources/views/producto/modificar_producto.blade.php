@@ -3,7 +3,7 @@
     <title>Inversionesjl-Producto</title>
 @endsection
 @section('block')
-    <h2><center>Producto</center></h2>
+    <h2><center>Producto <span class="glyphicon glyphicon-baby-formula"></span></center></h2>
     <form name="modificar_producto" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/producto/actualizar/{{ $producto['PR_ID'] }}" method="post">
         {{ csrf_field() }}
 

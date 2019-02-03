@@ -11,7 +11,7 @@
         @endif
     @endisset
     <div class="col-md-9" style="text-align:center,auto; padding:10px; margin: 30px;">
-    <h2 style="text-align:center, auto;">Producto</h2>
+    <h2 style="text-align:center, auto;">Producto <span class="glyphicon glyphicon-baby-formula"></span></h2>
     <form name="agregar_producto" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/producto/crear" method="post">
             {{ csrf_field() }}
 
@@ -79,7 +79,7 @@
             </div>
             <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-8">
-                        <a href="/home" class="btn btn-danger">Regresar</a>
+                        <a href="/producto/index" class="btn btn-danger">Regresar</a>
                         <input type="submit" class="btn btn-primary" value="Guardar">
                     </div>
                 </div>

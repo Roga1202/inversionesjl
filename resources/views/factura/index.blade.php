@@ -8,10 +8,10 @@
     <div class="row">
         <div class="col-md-9" style="align:center;">
             <h2 class="page-header">
-                Comprobantes
+                Comprobantes <span class="glyphicon glyphicon-print"></span>
             </h2>
 
-            <a class="btn btn-danger btn-lg btn-block" href="/factura/crear">Nuevo comprobante</a>
+            <a class="btn btn-danger btn-lg btn-block" href="/factura/crear">Crear Nuevo comprobante</a>
 
             <table class="table table-striped" style="size:auto;">
                 <thead>

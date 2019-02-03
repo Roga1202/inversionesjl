@@ -7,7 +7,7 @@
         {{ csrf_field() }}
     <input type="hidden" name="id" id="id" value="{{ $categoria['CA_ID'] }}">
     <div class="col-md-9" style="padding:10px; margin: 30px;">
-    <h2 style="align: auto;">Categoria</h2>
+    <h2 style="align: auto;">Modificar Categoria <span class="glyphicon glyphicon-pencil"></span></h2>
         <!-- no se toca -->
         {{ csrf_field() }}
 
@@ -29,7 +29,7 @@
                     
                     <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <a href="/home" class="btn btn-danger">Regresar</a>
+                        <a href="/categoria/index" class="btn btn-danger">Regresar</a>
                         <input type="submit" class="btn btn-primary" value="Guardar">
                     </div>
                 </div>

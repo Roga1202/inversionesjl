@@ -26,7 +26,7 @@
                     <div class="col-md-6" >
                         <form name="agregar_cliente" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/cliente/crear" method="post">
                             {{ csrf_field() }}
-                            <h2 style="text-align: center;color: black;">Agregar Cliente</h2>
+                            <h2 style="text-align: center;color: black;">Agregar Cliente <span class="glyphicon glyphicon-user"></span></h2>
                             <h3 style="color: black">Datos del nuevo cliente</h3>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -164,7 +164,7 @@
                             <div id="completo" style="text-align:center;">
                                 <br>
                                 <button type="submit" class="btn btn-primary">Registrar</button>
-                                <a href="/home" style="color:white;"><button type="button" class="btn btn-danger">salir sin guardar</button></a>
+                                <a href="/cliente/index" style="color:white;"><button type="button" class="btn btn-danger">salir sin guardar</button></a>
                                <p><br></p> 
                             </div>
                             
