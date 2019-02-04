@@ -51,6 +51,7 @@ Route::post('factura/crear','FacturaController@postcrear_factura');
 Route::get('factura/detalle/{id}', 'FacturaController@getdetalle')->where('id', '[0-9]+');
 Route::get('factura/index', 'FacturaController@getindex')->where('id', '[0-9]+');
 Route::get('/factura/pdf/{id}', 'FacturaController@getpdf')->where('id', '[0-9]+');
+Route::get('factura/eliminar/{id}', 'FacturaController@geteliminar_factura')->where('id', '[0-9]+');
 
 
 // utilidad

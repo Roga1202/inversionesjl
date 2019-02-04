@@ -38,14 +38,17 @@
                         <td class="text-right">$ {{number_format($factura->FA_precio_total, 2)}}</td>
                         <td class="text-right">{{ $factura->FA_inicio  }}</td>
                         <td class="text-right">
+                        <form action="/factura/eliminar/{{$factura['FA_ID']}}" method="GET" >
+                            {{ csrf_field() }}
                             <a class="btn btn-success btn-block btn-xs"  href="{{ url('factura/pdf/' . $factura->FA_ID) }}">
                                 <i class="fa fa-file-pdf-o" ></i> Descargar
                             </a>
                             
-                            <a class="btn btn-primary btn-block btn-xs"  href="#">
+                            <a class="btn btn-primary btn-block btn-xs"  href="/factura/eliminar/{{$factura['FA_ID']}}">
                                 <i class="fa fa-file-pdf-o" ></i> Eliminar
                             </a>
                         </td>
+                        </form>
                     </tr>
                     @endforeach
                 </tbody>

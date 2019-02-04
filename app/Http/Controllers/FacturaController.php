@@ -123,7 +123,7 @@ class FacturaController extends Controller
         $factura = factura::find($id);
         $factura->destroy($id);
 
-        $message = 'factura eliminada';
+        $message = 'Factura eliminada';
         $evento = 'Delete';
         return redirect('/home')->with([
             'message' => $message,
