@@ -63,7 +63,6 @@ class FacturaController extends Controller
         $ciudad = Ciudad::find($id_ciudad);
 
         $estado = $estado['ES_nombre'];
-        // dd($estado);
         $ciudad = $ciudad['CI_nombre'];
 
         

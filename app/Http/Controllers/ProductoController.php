@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\create_producto_request;
 use Illuminate\Http\Request;
-use App\producto;
-use App\categoria;
+use App\Producto;
+use App\Categoria;
 use App\Http\Requests\updated_producto_request;
 
 class productoController extends Controller
 {
     
     public function getindex(){
-        $producto = Producto::paginate(15);
+        $producto = Producto::orderBy('PR_ID','DESC')->paginate(15);
         return view('producto.index',[
             'productos' => $producto,
         ]);

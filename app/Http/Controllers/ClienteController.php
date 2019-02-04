@@ -7,12 +7,13 @@ use App\Http\Requests\updated_cliente_request;
 use Illuminate\Http\Request;
 use App\Estado;
 use App\Cliente;
+use App\Ciudad;
 
 class ClienteController extends Controller
 {
     
     public function getindex(){
-        $cliente = Cliente::paginate(15);
+        $cliente = Cliente::orderBy('CL_ID','DESC')->paginate(15);
         return view('cliente.index',[
             'clientes' => $cliente,
         ]);
@@ -29,9 +30,9 @@ class ClienteController extends Controller
     public function postcrear_cliente(create_cliente_request $request){
         $cliente = Cliente::create([
             'CL_primer_nombre' => $request->input('primer_nombre'),
-            'CL_otro_nombre' => $request->input('otro_nombre'),
+            'CL_otros_nombres' => $request->input('otro_nombre'),
             'CL_primer_apellido' => $request->input('primer_apellido'),
-            'CL_otro_apellido' => $request->input('otro_apellido'),
+            'CL_otros_apellidos' => $request->input('otro_apellido'),
             'CL_CI' => $request->input('ci'),
             'CL_telefono' => $request->input('telefono'),
             'CL_direccion' => $request->input('direccion'),
@@ -54,9 +55,11 @@ class ClienteController extends Controller
     public function geteditar_cliente($id){
         $cliente = Cliente::query()->where('CL_ID', '=', $id)->first();
         $estados = Estado::all()->pluck('ES_nombre','ES_ID');
+        $ciudad = Ciudad::where('CI_ID', '=', $cliente->CL_ciudad)->pluck('CI_nombre','CI_ID');
         return view('cliente.modificar_cliente',[
             'estados' => $estados, 
             'cliente' => $cliente, 
+            'ciudad' => $ciudad, 
         ]);
     }
 

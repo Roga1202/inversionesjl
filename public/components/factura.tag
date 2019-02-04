@@ -8,7 +8,7 @@
                 <input class="form-control" type="text" placeholder="Apellido" readonly value="{apellido}" />
             </div>
             <div class="col-xs-2">
-                <input class="form-control" type="text" placeholder="Cedula" readonly value="{cedula}" />
+                <input class="form-control" type="number" placeholder="Cedula" readonly value="{cedula}" />
             </div>
             <div class="col-xs-2">
                 <input class="form-control" type="text" placeholder="Dirección" readonly value="{direccion}" />
@@ -28,12 +28,12 @@
             <input ref="producto" id="producto" class="form-control" type="text" placeholder="Nombre del producto" />
         </div>
         <div class="col-xs-2">
-            <input ref="cantidad" id="cantidad" class="form-control" type="text" placeholder="Cantidad" />
+            <input ref="cantidad" id="cantidad" class="form-control" type="number" placeholder="Cantidad" />
         </div>
         <div class="col-xs-2">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">S/.</span>
-                <input class="form-control" type="text" placeholder="Precio" value="{precio}" readonly />
+                <input ref="precio" class="form-control" type="number" placeholder="Precio" value="{precio}"/>
             </div>
         </div>
         <div class="col-xs-1">
@@ -121,8 +121,8 @@
                     id : self.PR_ID,
                     nombre : self.nombre_producto,
                     cantidad :  parseInt(self.refs.cantidad.value),
-                    precio : parseFloat(self.precio),    
-                    total : parseFloat(self.refs.cantidad.value * self.precio)
+                    precio : parseFloat(self.refs.precio.value),    
+                    total : parseFloat(self.refs.cantidad.value * self.refs.precio.value)
                 });
 
             self.PR_ID = '';

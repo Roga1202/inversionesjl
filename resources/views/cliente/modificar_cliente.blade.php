@@ -17,15 +17,17 @@
             Categoria Guardada
         </div>
     @endisset
-    <div class="container-fluid text-center">    
-        <div class="row content">
-            <div class="col-sm-8 text-left"> 
-                <div class="container" class="contenido" id="contenido">
-                    <div class="col-md-12">
-                    <form name="modificar_cliente" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/cliente/actualizar/{{ $cliente['CL_ID']}}" method="post">
+         
+
+    <div class="container-fluid text-center" class="form-group">    
+        <div class="row content" style="text-aling:center;">
+            <div class="col-md-6 text-left"> 
+                <div class="container" class="contenido" id="contenido" >
+                    <div class="col-md-6" >
+                        <form name="agregar_cliente" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" action="/cliente/actualizar/{{ $cliente['CL_ID'] }}" method="post">
+                            <input type="hidden" id="id" name="id" class="form-control" value="{{ $cliente['CL_ID']}}">
                             {{ csrf_field() }}
-                    <input type="hidden" id="id" name="id" class="form-control" value="{{ $cliente['CL_ID']}}">
-                            <h2 style="text-align: center;color: black;">Agregar Cliente</h2>
+                            <h2 style="text-align: center;color: black;">Modificar Cliente <span class="glyphicon glyphicon-user"></span></h2>
                             <h3 style="color: black">Datos del nuevo cliente</h3>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -62,12 +64,13 @@
                                 @if ($errors->has('otro_apellido'))
                                     @foreach ($errors->get('otro_apellido') as $error)
                                         <div class="invalid-feedback">{{ $error }}</div>   
-                                @endforeach
+                                    @endforeach
+                                @endif
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
-                                <input id="ci" name="ci" type="text" class="form-control @if($errors->has('ci')) is-invalid @endif" placeholder="Cedula de identidad o número de partida" required autocomplete="off" value="{{ $cliente['CL_CI']}}">
+                                <input id="ci" name="ci" type="number" class="form-control @if($errors->has('ci')) is-invalid @endif" placeholder="Cedula de identidad o número de partida" required autocomplete="off" value="{{ $cliente['CL_CI']}}">
                                 @if ($errors->has('ci'))
                                     @foreach ($errors->get('ci') as $error)
                                         <div class="invalid-feedback">{{ $error }}</div>   
@@ -77,7 +80,7 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                <input id="telefono" name="telefono" type="text" class="form-control @if($errors->has('telefono')) is-invalid @endif" placeholder="Número de telefono" required autocomplete="off" value="{{ $cliente['CL_telefono']}}">
+                                <input id="telefono" name="telefono" type="number" class="form-control @if($errors->has('telefono')) is-invalid @endif" placeholder="Número de telefono" required autocomplete="off" value="{{ $cliente['CL_telefono']}}">
                                 @if ($errors->has('telefono'))
                                     @foreach ($errors->get('telefono') as $error)
                                         <div class="invalid-feedback">{{ $error }}</div>   
@@ -116,104 +119,93 @@
                                 @endif
                             </div>
 
+                           
 
-                            <div id="form-group">
-                                <label for="estado">Selecciona tu estado</label>
-                                <select class="selectpicker @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
-                                    @if ($errors->has('estado'))
-                                        @foreach ($errors->get('estado') as $error)
+                            <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker">
+                                </i></span><select class="form-control @if($errors->has('estado')) is-invalid @endif" name="estado" id="estado">
+                                @if ($errors->has('estado'))
+                                    @foreach ($errors->get('estado') as $error)
+                                        <div class="invalid-feedback">{{ $error }}</div>   
+                                    @endforeach
+                                @endif
+                                <option value="">Selecciona tu estado</option>
+                                        @if (isset($estados))
+                                            @foreach ($estados as $id => $nombre)
+                                                <option value="{{$id}}">{{$nombre}}</option>
+                                            @endforeach
+                                        @endif
+                                        @if (empty($estados))
+                                            <option value="">No hay estados creados o no se cargaron</option>
+                                        @endif
+                                    </select>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                <select class="form-control @if($errors->has('ciudad')) is-invalid @endif" name="ciudad" id="ciudad" for="ciudad">
+                                    @if ($errors->has('ciudad'))
+                                        @foreach ($errors->get('ciudad') as $error)
                                             <div class="invalid-feedback">{{ $error }}</div>   
                                         @endforeach
                                     @endif
-                                    <option value="">Selecciona tu estado</option>
-                                    @if (isset($estados))
-                                        @foreach ($estados as $id => $nombre)
-                                            <option value="{{$id}}">{{$nombre}}</option>
-                                        @endforeach
+                                    @if (isset($ciudad))
+                                            @foreach ($ciudad as $id => $nombre)
+                                                <option value="{{$id}}" disabled>{{$nombre}}</option>
+                                            @endforeach
                                     @endif
-                                    @if (empty($estados))
+                                    @if (empty($ciudad))
                                         <option value="">No hay estados creados o no se cargaron</option>
                                     @endif
                                 </select>
                             </div>
 
 
-                            <div id="form-group">
-                            <label for="ciudad">Selecciona tu ciudad</label>
-                            <select class="selectpick @if($errors->has('ciudad')) is-invalid @endif" name="ciudad" id="ciudad">
-                                @if ($errors->has('ciudad'))
-                                    @foreach ($errors->get('ciudad') as $error)
-                                        <div class="invalid-feedback">{{ $error }}</div>   
-                                    @endforeach
-                                @endif
-                                <option value="">Selecciona tu ciudad</option>
-                             </select>
-                            </div>
-                                
-                            <div id="completo">
+                            <div id="completo" style="text-align:center;">
                                 <br>
                                 <button type="submit" class="btn btn-primary">Registrar</button>
-                                <a href="/home">salir sin guardar</a>
+                                <a href="/cliente/index" style="color:white;"><button type="button" class="btn btn-danger">salir sin guardar</button></a>
+                               <p><br></p> 
                             </div>
+                            
                         </form>
                     </div>
-                <br>
                 </div>
             </div>
         </div>
     </div>
+
+                         
+
 @endsection
 
 @section('script')
 <script>
     $(function(){
         var value_estado= '<?php echo $cliente['CL_estado'];?>'
+
         $("#estado").val(value_estado)
-
-        if(value_estado){
-            $.ajax({
-                    url: '/ciudades/'+value_estado,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(data){
-                    $('select[name="ciudad"]').empty();
-                        $.each(data, function(key, value){
-                        $('select[name="ciudad"]')
-                        .append('<option value="'+value+'">'+key + '</option>')
-                    });
-                    }
-                })
-            } else{
-                $('select[name="ciudad"]').empty();$('select[name="ciudad"]')
-                        .append('<option value=""></option>')
-            }
-        var value_ciudad= '<?php echo $cliente['CL_ciudad'];?>'
-        $("#ciudad").val(value_ciudad)
-    });
-</script>
- <script>
-     $(function(){
-        $('select[name="estado"]').on('change', function(){
-            var ES_ID = $(this).val();
-            if(ES_ID){
+        
+        if($('select[name="estado"]').on('click')){
+            if(value_estado){
                 $.ajax({
-                    url: '/ciudades/'+ES_ID,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(data){
-
-                        $('select[name="ciudad"]').empty();
-                        $.each(data, function(key, value){
+                        url: '/ciudades/'+value_estado,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data){
+                            $.each(data, function(key, value){
                             $('select[name="ciudad"]')
                             .append('<option value="'+value+'">'+key + '</option>')
                         });
-                    }
-                })
-            } else{
-                $('select[name="ciudad"]').empty();
-            }
-        });
+                        }
+                    })
+                } else{
+                    $('select[name="ciudad"]').empty();$('select[name="ciudad"]')
+                            .append('<option value=""></option>')
+                }
+            var value_ciudad= '<?php echo $cliente['CL_ciudad'];?>'
+            $("#ciudad").val(value_ciudad)
+        };
     });
- </script>
- 
+</script>
  @endsection

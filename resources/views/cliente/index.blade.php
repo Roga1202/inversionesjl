@@ -29,7 +29,7 @@
                         <td class="text-center">{{ $cliente['CL_ID'] }}</td>
                         <td class="text-center">{{ $cliente['CL_primer_nombre'] }} {{ $cliente['CL_primer_apellido'] }}</td>
                         <td class="text-center">{{ $cliente['CL_CI'] }}</td>
-                        <form action="/cliente/eliminar/{{$cliente['CL_ID']}}" method="POST" >
+                        <form action="/cliente/eliminar/{{$cliente['CL_ID']}}" method="GET" >
                         {{ csrf_field() }}
                         <td class="text-center"> <a href="/cliente/actualizar/{{$cliente['CL_ID']}}" class="btn btn-info btn-sm">Actualizar</a> </td>
 

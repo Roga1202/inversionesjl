@@ -28,7 +28,7 @@
                         
                         <td class="text-center">{{ $categoria['CA_ID'] }}</td>
                         <td class="text-center">{{ $categoria['CA_nombre'] }}</td>
-                        <form action="/categoria/eliminar/{{$categoria['CA_ID']}}" method="POST" >
+                        <form action="/categoria/eliminar/{{$categoria['CA_ID']}}" method="GET">
                         {{ csrf_field() }}
                         <td class="text-center"> <a href="/categoria/actualizar/{{$categoria['CA_ID']}}" class="btn btn-info btn-sm">Actualizar</a> </td>
 

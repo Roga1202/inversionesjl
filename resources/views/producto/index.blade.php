@@ -30,7 +30,7 @@
                         <td class="text-center">{{ $producto['PR_ID'] }}</td>
                         <td class="text-center">{{ $producto['PR_nombre'] }}</td>
                         <td class="text-center">{{ $producto['PR_precio'] }}</td>
-                        <form action="/producto/eliminar/{{$producto['PR_ID']}}" method="POST" >
+                        <form action="/producto/eliminar/{{$producto['PR_ID']}}" method="GET" >
                         {{ csrf_field() }}
                         <td class="text-center"> <a href="/producto/actualizar/{{$producto['PR_ID']}}" class="btn btn-info btn-sm">Actualizar</a> </td>
 
